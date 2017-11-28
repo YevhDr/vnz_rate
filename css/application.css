@@ -382,5 +382,29 @@ and also iPads specifically.
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   body {
     width: 495px; } }
+/* pagination*/
+div.pager {
+  text-align: center;
+  margin: 1em 0; }
+
+div.pager span {
+  display: inline-block;
+  width: 1.8em;
+  height: 1.8em;
+  line-height: 1.8;
+  text-align: center;
+  cursor: pointer;
+  background: #b5b6b8;
+  color: #fff;
+  margin-right: 0.5em; }
+
+div.pager span.active {
+  background: #faa51b; }
+
+th.des:after {
+  content: "\21E9"; }
+
+th.aes:after {
+  content: "\21E7"; }
 
 /*# sourceMappingURL=application.css.map */
