@@ -154,3 +154,31 @@ th.des:after {
 th.aes:after {
   content: "\21E7";
 }
+
+
+/* bar charts*/
+
+.bar {
+  fill: #3498db;
+}
+
+.bar:hover {
+  fill: #2ecc71;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 0.5px;
+  shape-rendering: crispEdges;
+}
+
+
+.bar_shadow {
+  fill: #e3e3e3;
+}
