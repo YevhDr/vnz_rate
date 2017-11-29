@@ -22,7 +22,7 @@ var drawBar = function() {
             ;
 
 
-            var x = d3.scale.linear().range([0, width]).domain([0, 200]);
+            var x = d3.scale.linear().range([0, width]).domain([0, 100]);
 
             var y = d3.scale.linear().range([height, 0]);
 
@@ -41,10 +41,12 @@ var drawBar = function() {
                 .enter()
                 .append("rect")
                 .attr("class", "bar")
-                .attr("x", x(data.from))
+                .attr("x", x(data.from)-100)
                 .attr("y", 40)
                 .attr("width", x(data.to - data.from))
                 .attr("height", 10)
+
+
 
             ;
 

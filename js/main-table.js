@@ -4,7 +4,7 @@ var file = "data/data.csv";
 d3.csv(file, function (error, data) {
     if (error) throw error;
 
-    // var formatValue = d3.format(".0f");
+    var formatValue = d3.format(".1f");
 
     data.forEach(function (d) {
         d.mean = +d.mean;
@@ -13,7 +13,13 @@ d3.csv(file, function (error, data) {
         d.total_apps = +d.total_apps;
         d.total_per_place = +d.total_per_place;
         d.budg_per_place = +d.budg_per_place; d.price = +d.price; d.scopus_public = +d.scopus_public;
-        d.scopus_qoutes = +d.scopus_qoutes; d.rate_sort = +d.rate_sort;   });
+        d.scopus_qoutes = +d.scopus_qoutes; d.rate_sort = +d.rate_sort;
+        d.from = formatValue(d.from);
+        d.to = formatValue(d.to);
+        d.from = +d.from;
+        d.to = +d.to
+
+    });
 
     var sortAscending = true;
     var titles = d3.keys(data[0]);
@@ -28,7 +34,7 @@ d3.csv(file, function (error, data) {
 
 // Add the table header content.
     tableHead.append('tr').selectAll('th')
-        .data(["Назва", "Середній бал ЗНО", "graph","Всього заяв", "Заяв на 1 місце", "Заяв на 1 місце (бюджет)", "Вартість", "К-ть публікацій (Scopus)", "К-ть цитувань (Scopus)", "Місце в консолідованому рейтингу"]).enter()
+        .data(["Назва", "Середній бал ЗНО", "Всього заяв", "Заяв на 1 місце", "Заяв на 1 місце (бюджет)", "Вартість", "К-ть публікацій (Scopus)", "К-ть цитувань (Scopus)", "Місце в консолідованому рейтингу"]).enter()
         // .data(["name", "mean", "total", "perPlace", "perPlaceB", "price", "scopusP", "scopusQ", "rate"]).enter()
         // .data(titles).enter()
         .append('th')
@@ -51,7 +57,7 @@ d3.csv(file, function (error, data) {
         ;
 
     rows.append('td').text(function (d) { return d.univ; });
-    rows.append('td').text(function (d) { return d.mean; });
+
 
     //Add the spark chart.
     rows.append('td')
@@ -63,10 +69,35 @@ d3.csv(file, function (error, data) {
     rows.append('td').text(function (d) { return d.total_apps; });
     rows.append('td').text(function (d) { return d.total_per_place; });
     rows.append('td').text(function (d) { return d.budg_per_place; });
-    rows.append('td').text(function (d) { return d.price; });
+    rows.append('td').text(function (d) {
+
+        if (d.price >= 1) {
+            return d.price;
+        }
+        else  {
+            return "дані відсутні"
+        }
+
+
+    });
     rows.append('td').text(function (d) { return d.scopus_public; });
     rows.append('td').text(function (d) { return d.scopus_qoutes; });
-    rows.append('td').text(function (d) { return d.rate_place; });
+    rows.append('td').text(function (d) {
+
+        if (d.rate_sort >= 1 && d.rate_sort < 500 ) {
+            return d.rate_place;
+        }
+        else if (d.rate_sort === 500) {
+            return "відсутні в рейтингу"
+        }
+
+        else {
+            return "відсутні в рейтингу"
+        }
+
+
+
+    });
 
 
 

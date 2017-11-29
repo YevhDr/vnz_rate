@@ -11,13 +11,11 @@ var sort = function (stat) {
 
                 });
 
-
-
-
-
         }
 
-        if (stat == "Середній бал ЗНО") {
+
+
+    if (stat == "Середній бал ЗНО") {
 
 
                 console.log("ZNO");
