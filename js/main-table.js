@@ -34,7 +34,7 @@ d3.csv(file, function (error, data) {
 
 // Add the table header content.
     tableHead.append('tr').selectAll('th')
-        .data(["Назва", "Середній бал ЗНО", "Всього заяв", "Заяв на 1 місце", "Заяв на 1 місце (бюджет)", "Вартість", "К-ть публікацій (Scopus)", "К-ть цитувань (Scopus)", "Місце в консолідованому рейтингу"]).enter()
+        .data(["Назва", "Середній бал ЗНО", "Всього заяв", "Заяв на 1 місце", "Заяв на 1 місце (бюджет)", "Вартість контракту*", "К-ть публікацій (Scopus)", "К-ть цитувань (Scopus)", "Місце в консолідованому рейтингу"]).enter()
         // .data(["name", "mean", "total", "perPlace", "perPlaceB", "price", "scopusP", "scopusQ", "rate"]).enter()
         // .data(titles).enter()
         .append('th')
@@ -72,7 +72,7 @@ d3.csv(file, function (error, data) {
     rows.append('td').text(function (d) {
 
         if (d.price >= 1) {
-            return d.price;
+            return d.price + " грн";
         }
         else  {
             return "дані відсутні"
@@ -100,20 +100,15 @@ d3.csv(file, function (error, data) {
     });
 
 
+    d3.selectAll("table tbody tr")
+        .sort(function (a, b) {
+            return d3.descending(a.mean, b.mean) ;
 
+        });
 
+    /* -------------- PAGINATION ------------------ */
 
-
-
-    // d3.selectAll("table tbody tr")
-    //     .sort(function (a, b) {
-    //         return d3.descending(a.mean, b.mean) ;
-    //
-    //     });
-
-
-
-    paginationList(20);
+    paginationList(50);
 
 
     function paginationList(listPaginationCount){
@@ -123,7 +118,7 @@ d3.csv(file, function (error, data) {
             var $pager=$('.pager').remove();
             var $table = $(this);
             $table.bind('repaginate', function() {
-                $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+                $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage+1) * numPerPage).show();
             });
             $table.trigger('repaginate');
             var numRows = $table.find('tbody tr').length;
@@ -163,4 +158,31 @@ d3.csv(file, function (error, data) {
 //         paginationList(numPerPage);
 //     });
 
+
+
+
+
 });
+
+/* -------------- SEARCH------------------ */
+
+function myFunction() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("table");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+
+

@@ -1,7 +1,7 @@
 var sort = function (stat) {
 
     // d3.csv(file, function (error, data) {
-
+    var table = document.getElementById ("table");
         if (stat == "Назва") {
 
             console.log("hello");
@@ -10,6 +10,9 @@ var sort = function (stat) {
                     return d3.ascending(a.univ, b.univ);
 
                 });
+
+
+            table.refresh ();
 
         }
 
@@ -27,11 +30,14 @@ var sort = function (stat) {
                     });
 
 
+        table.refresh ();
+
+
             }
 
 
 
-        if (stat == "Вартість") {
+        if (stat == "Вартість контракту*") {
 
             console.log("price");
             d3.selectAll("table tbody tr")
@@ -39,6 +45,8 @@ var sort = function (stat) {
                     return d3.descending(a.price, b.price);
 
                 });
+
+            table.refresh ();
 
         }
 

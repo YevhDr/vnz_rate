@@ -31,27 +31,24 @@ table {
 //tr:nth-of-type(odd) {
 //  background: #eee;
 //}
+
 th {
-  background: #333;
+  background: #717274;
   color: white;
   font-weight: bold;
   cursor: s-resize;
   background-repeat: no-repeat;
   background-position: 3% center;
 }
+
+
 td, th {
   padding: 6px;
   border: 1px solid #ccc;
   text-align: left;
 }
 
-th.des:after {
-  content: "\21E9";
-}
 
-th.aes:after {
-  content: "\21E7";
-}
 
 /*
 Max width before this PARTICULAR table gets nasty
@@ -84,26 +81,26 @@ only screen and (max-width: 760px),
     padding-left: 50%;
   }
 
-  td:before {
-    /* Now like a table header */
-    position: absolute;
-    /* Top/left values mimic padding */
-    top: 6px;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
-  }
+  //td:before {
+  //  /* Now like a table header */
+  //  position: absolute;
+  //  /* Top/left values mimic padding */
+  //  top: 6px;
+  //  left: 6px;
+  //  width: 45%;
+  //  padding-right: 10px;
+  //  white-space: nowrap;
+  //}
 
   /*
   Label the data
   */
-  td:before {
-    content: attr(data-th) ": ";
-    font-weight: bold;
-    width: 6.5em;
-    display: inline-block;
-  }
+  //td:before {
+  //  content: attr(data-th) ": ";
+  //  font-weight: bold;
+  //  width: 6.5em;
+  //  display: inline-block;
+  //}
 }
 
 /* Smartphones (portrait and landscape) ----------- */
@@ -158,9 +155,9 @@ th.aes:after {
 
 /* bar charts*/
 
-.bar {
-  fill: #3498db;
-}
+//.bar {
+//  fill: #3498db;
+//}
 
 .bar:hover {
   fill: #2ecc71;
