@@ -30,34 +30,31 @@ d3.csv(file, function (error, data) {
     var tableHead = table.append('thead'),
         tableBody = table.append('tbody');
 
-
-
-// Add the table header content.
+    // Add the table header content.
     tableHead.append('tr').selectAll('th')
         .data(["Назва", "Середній бал ЗНО", "Всього заяв", "Заяв на 1 місце", "Заяв на 1 місце (бюджет)", "Вартість контракту*", "К-ть публікацій (Scopus)", "К-ть цитувань (Scopus)", "Місце в консолідованому рейтингу"]).enter()
-        // .data(["name", "mean", "total", "perPlace", "perPlaceB", "price", "scopusP", "scopusQ", "rate"]).enter()
-        // .data(titles).enter()
         .append('th')
         .text(function (d) {
             return d;  })
         .attr("onclick", function (d) {
-        return "sort('" + d + "')"
-    })
+            return "sort('" + d + "')"; })
+        ;
 
-
-    ;
 
 
 // Add the table body rows.
     var rows = tableBody.selectAll('tr')
         .data(data)
         .enter()
-        .append('tr')
+        .append('tr');
 
+    rows.append('td')
+        .text(function (d) {
+            return d.univ; })
+        .style("cursor", "pointer")
+        .attr("class", "link")
+        .on("click", function(d) { return window.open (d.link); });
 
-        ;
-
-    rows.append('td').text(function (d) { return d.univ; });
 
 
     //Add the spark chart.

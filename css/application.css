@@ -426,4 +426,8 @@ th.aes:after {
   top: 100%;
   left: 0; }
 
+.link:hover {
+  color: #1a388b !important;
+  text-decoration: underline; }
+
 /*# sourceMappingURL=application.css.map */
