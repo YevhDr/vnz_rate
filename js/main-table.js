@@ -54,6 +54,7 @@ d3.csv(file, function (error, data) {
         .enter()
         .append('tr')
 
+
         ;
 
     rows.append('td').text(function (d) { return d.univ; });
@@ -106,41 +107,141 @@ d3.csv(file, function (error, data) {
 
         });
 
-    /* -------------- PAGINATION ------------------ */
-
     paginationList(50);
 
 
-    function paginationList(listPaginationCount){
-        $('table.paginated').each(function() {
-            var currentPage = 0;
-            var numPerPage = listPaginationCount;
-            var $pager=$('.pager').remove();
-            var $table = $(this);
-            $table.bind('repaginate', function() {
-                $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage+1) * numPerPage).show();
-            });
-            $table.trigger('repaginate');
-            var numRows = $table.find('tbody tr').length;
-            var numPages = Math.ceil(numRows / numPerPage);
-            var $pager = $('<div class="pager"></div>');
-            for (var page = 0; page < numPages; page++) {
-                $('<span class="page-number"></span>').text(page + 1).bind('click', {
-                    newPage: page
-                }, function(event) {
-                    currentPage = event.data['newPage'];
-                    $table.trigger('repaginate');
-                    $(this).addClass('active').siblings().removeClass('active');
-                }).appendTo($pager).addClass('clickable');
-            }
-            $pager.insertBefore($table).find('span.page-number:first').addClass('active');
-        });
-    }
+    /* -------------- PAGINATION 1 ------------------ */
 
 
-//     // Create selection from Array
+    // function paginationList(listPaginationCount) {
+    //
+    //
+    //     var numberOfItems = $('tbody tr').length;
+    //     var limitOfPages = listPaginationCount;
+    //     $("tr:gt(" + (limitOfPages - 1) + ")").hide();
+    //
+    //     var totalPages = Math.round(numberOfItems / limitOfPages);
+    //     $('.pagination').append("<li class='current-page active'><a href='javascript:void(0)'>" + 1 + "</a></li>");
+    //
+    //
+    //     for (var t = 2; t <= totalPages; t++) {
+    //         $('.pagination').append("<li class='current-page'><a href='javascript:void(0)'>" + t + "</a></li>");
+    //     }
+    //
+    //
+    //     $('.pagination').append("<li id='next-page'><a href='javascript:void(0)' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
+    //
+    //
+    //     $(".pagination li.current-page").on("click", function () {
+    //
+    //         if ($(this).hasClass("active")) {
+    //             return false
+    //         } else {
+    //             var currentPage = $(this).index();
+    //             $(".pagination li").removeClass("active");
+    //             $(this).addClass("active");
+    //             $("tbody tr").hide();
+    //
+    //             var grandTotal = limitOfPages * currentPage;
+    //             for (var i = grandTotal - limitOfPages; i < grandTotal; i++) {
+    //                 $("tbody tr:eq(" + i + ")").show()
+    //             }
+    //         }
+    //
+    //
+    //     });
+    //
+    //
+    //     $("#next-page").on("click", function () {
+    //         var currentPage = $(".pagination li.active").index();
+    //         if (currentPage === totalPages) {
+    //             return false;
+    //         } else {
+    //             currentPage++;
+    //             $(".pagination li").removeClass("active");
+    //             $("tbody tr").hide();
+    //             var grandTotal = limitOfPages * currentPage;
+    //             for (var i = grandTotal - limitOfPages; i < grandTotal; i++) {
+    //                 $("tbody tr:eq(" + i + ")").show()
+    //             }
+    //             $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass("active");
+    //         }
+    //
+    //     });
+    //
+    //     $("#previous-page").on("click", function () {
+    //         var currentPage = $(".pagination li.active").index();
+    //         if (currentPage === 1) {
+    //             return false;
+    //         } else {
+    //             currentPage--;
+    //             $(".pagination li").removeClass("active");
+    //             $("tbody tr").hide();
+    //             var grandTotal = limitOfPages * currentPage;
+    //             for (var i = grandTotal - limitOfPages; i < grandTotal; i++) {
+    //                 $("tbody tr:eq(" + i + ")").show()
+    //             }
+    //             $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass("active");
+    //         }
+    //
+    //     });
+    //
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* -------------- PAGINATION 2------------------ */
+
+
+
+    // Create selection from Array
 //     var arr = [
-//         {val : 1000, text: 'All'},
+//         {val : 1000, text: 'All'},paginationList(50);
+//
+//
+//     function paginationList(listPaginationCount){
+//         $('table.paginated').each(function() {
+//             var currentPage = 0;
+//             var numPerPage = listPaginationCount;
+//             var $pager=$('.pager').remove();
+//             var $table = $(this);
+//             $table.bind('repaginate', function() {
+//                 $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage+1) * numPerPage).show();
+//             });
+//             $table.trigger('repaginate');
+//             var numRows = $table.find('tbody tr').length;
+//             var numPages = Math.ceil(numRows / numPerPage);
+//             var $pager = $('<div class="pager"></div>');
+//             for (var page = 0; page < numPages; page++) {
+//                 $('<span class="page-number"></span>').text(page + 1).bind('click', {
+//                     newPage: page
+//                 }, function(event) {
+//                     currentPage = event.data['newPage'];
+//                     $table.trigger('repaginate');
+//                     $(this).addClass('active').siblings().removeClass('active');
+//                 }).appendTo($pager).addClass('clickable');
+//             }
+//             $pager.insertBefore($table).find('span.page-number:first').addClass('active');
+//         });
+//     }
+//
 //         {val : 5, text: '5'},
 //         {val : 10, text: '10'},
 //         {val : 15, text: '15'},
@@ -150,19 +251,26 @@ d3.csv(file, function (error, data) {
 //     $(arr).each(function() {
 //         sel.append($("<option>").attr('value',this.val).text(this.text));
 //     });
-
+//
 // // Set value after selection
 //     $('#selectionPerPage').change(function() {
 //         // value and cookie
 //         var numPerPage = $(this).val();
 //         paginationList(numPerPage);
 //     });
+//
+//
+
 
 
 
 
 
 });
+
+
+
+
 
 /* -------------- SEARCH------------------ */
 
@@ -183,6 +291,12 @@ function myFunction() {
         }
     }
 }
+
+
+
+
+
+
 
 
 
