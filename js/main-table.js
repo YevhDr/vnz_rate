@@ -257,14 +257,11 @@ d3.csv(file, function (error, data) {
                     i++;
                 });
 
-                // alert($( "#slider-range" ).slider( "values", 0 ) + " + " + $( "#slider-range" ).slider( "values", 1 ));
-
-
             }
 
         });
-        $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 ) +
-            " - " + $( "#slider-range" ).slider( "values", 1 ) );
+        $( "#amount2" ).val( $( "#slider-range2" ).slider( "values", 0 ) +
+            " - " + $( "#slider-range2" ).slider( "values", 1 ) );
 
 
     } );  /* --------- end of Slider 1 ------------ */
