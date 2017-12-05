@@ -229,7 +229,7 @@ d3.csv(file, function (error, data) {
             range: true,
             min: 0,
             max: 42178,
-            values: [8000, 15000],
+            values: [0, 42178],
             slide: function(event, ut ) {
                 $("#amount2").val(ut.values[0] + "-" + ut.values[1]);
             },
