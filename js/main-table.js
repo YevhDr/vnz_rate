@@ -261,7 +261,7 @@ d3.csv(file, function (error, data) {
 
         });
         $( "#amount2" ).val( $( "#slider-range2" ).slider( "values", 0 ) +
-            " - " + $( "#slider-range2" ).slider( "values", 1 ) );
+            " грн - " + $( "#slider-range2" ).slider( "values", 1 ) + " грн");
 
 
     } );  /* --------- end of Slider 1 ------------ */
