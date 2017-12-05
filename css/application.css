@@ -305,6 +305,9 @@ table {
   width: 100%;
   border-collapse: collapse; }
 
+.table > thead > tr > th {
+  vertical-align: middle !important; }
+
 th {
   background: #717274;
   color: white;
@@ -316,7 +319,7 @@ th {
 td, th {
   padding: 6px;
   border: 1px solid #ccc;
-  text-align: left; }
+  text-align: center; }
 
 /*
 Max width before this PARTICULAR table gets nasty
@@ -344,11 +347,8 @@ and also iPads specifically.
     position: relative;
     padding-left: 50%; }
 
-  /*
-  Label the data
-  */ }
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* Smartphones (portrait and landscape) ----------- */ }
+@media only screen and (max-width: 760px) and (min-device-width: 320px) and (max-device-width: 480px), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (min-device-width: 320px) and (max-device-width: 480px) {
   body {
     padding: 0;
     margin: 0;
@@ -382,7 +382,6 @@ th.des:after {
 th.aes:after {
   content: "\21E7"; }
 
-/* bar charts*/
 .bar:hover {
   fill: #2ecc71; }
 
@@ -429,5 +428,13 @@ th.aes:after {
 .link:hover {
   color: #1a388b !important;
   text-decoration: underline; }
+
+#amount #amount2 {
+  font-size: 0.5em !important;
+  color: grey !important; }
+
+label {
+  font-size: 0.8em !important;
+  color: grey !important; }
 
 /*# sourceMappingURL=application.css.map */

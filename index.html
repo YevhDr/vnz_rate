@@ -56,24 +56,61 @@
     <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
-    <!--<script src="lib/jquery-3.2.1.js"></script>-->
-    <!--<script src="https://d3js.org/d3-dsv.v1.min.js"></script>-->
+
+
     <script src="https://d3js.org/d3.v3.min.js"></script>
-    <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
-
-    <!--<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>-->
-    <!--<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.0.4/d3.min.js"></script>-->
-
-    <!--<script src=js/jquery.dataTables.min.js"></script>-->
-
     <script src="lib/d3.tip.v0.6.3.js"></script>
+    <script src='lib/share-behavior.js'></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+
+    <script>
+//        $( function() {
+//            $( "#slider-range" ).slider({
+//                range: true,
+//                min: 100,
+//                max: 200,
+//                values: [100, 200],
+//                slide: function( event, ui ) {
+//                    $( "#amount" ).val( ui.values[ 0 ] + "-" + ui.values[ 1 ] );
+//
+//                    var tr = $("tbody tr");
+//                    var i = 0;
+//
+//                    data.forEach(function (d) {
+//
+//                        if (d.mean > min && d.mean < max) {
+//                            // ("умова виконана");
+//                            d3.select(rows[0][i]).style("display", "");
+//
+//                        } else {
+//                            d3.select(rows[0][i]).style("display", "none");
+//
+//
+//
+//                        }
+//                        i++;
+//                    })
+//                }
+//            });
+//            $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 ) +
+//                " - " + $( "#slider-range" ).slider( "values", 1 ) );
+//        } );
+    </script>
+
+
     <script src="js/main-table.js"></script>
     <script src="js/sortTable.js"></script>
     <script src="js/stackedBar.js"></script>
     <script src="js/pagination.js"></script>
 
-    <script src='lib/share-behavior.js'></script>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+
 
 </head>
 <style>
@@ -86,13 +123,42 @@
 
 
 </header>
+
+<!---------- ZNO-slider ------->
 <div class="container">
- <p>Поки що сортується за Назвою, ЗНО, загальною кількістю заяв і вартістю в обох напрямках, інші тільки descending</p>
-    <p>Пошук за ВНЗ працює</p>
-    <p>Графічки при наведенні мишею показують макс. і мін. значення ЗНО</p>
-    <p>Колір графічків червоний, де макс. знач. ЗНО < 140 </p>
-    <p>Назва ВНЗ - лінк на сайт</p>
+    <div class="row">
+        <div class="col-md-offset-4 col-md-5">
+
+<p>
+    <label for="amount">Фільтрувати результати ЗНО</label>
+    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+
+
+<div id="slider-range"></div>
+
+        </div>
+    </div>
 </div>
+
+
+
+<!---------- PRICE-slider ------->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-5">
+
+            <p>
+                <label for="amount2">Фільтрувати вартість навчання</label>
+                <input type="text" id="amount2" readonly style="border:0; color:#f6931f; font-weight:bold;">
+            </p>
+
+
+            <div id="slider-range2"></div>
+
+        </div>
+    </div> <!-------- end of slider------>
 
 
 <div class="row">
@@ -104,11 +170,15 @@
     </div>
     <div class="col-md-offset-2 col-md-3">
         <div class="input-group" style="margin-top: 50px; font-size: 0.9em;"><span>Пошук за регіоном  </span>
-            <input type="text" id="myInput" onkeyup="myFunction()" style="font-size: 0.9em;"
+            <input type="text" id="myInput" style="font-size: 0.9em;"
                    placeholder="наприклад, Київ">
         </div>
     </div>
 </div>
+
+
+
+
 
 <nav style="text-align: center; font-size: 10px; color:grey;" aria-label="page-navigation">
     <ul class="pagination">
@@ -116,12 +186,7 @@
 </nav>
 
 
-<!--<div class="list-group">-->
-<!--<a href="#" class="list-group-item active">-->
-<!--<h4 class="list-group-item-heading">Title 1</h4>-->
-<!--<p class="list-group-item-text"></p>-->
-<!--</a>-->
-<!--</div>-->
+
 
 <table id="table" style="width: 70%; margin-left:10%"></table>
 
@@ -242,7 +307,9 @@
     </div>
 </footer>
 
-<script src="lib/jquery-2.1.4.min.js"></script>
+
+
+<!--<script src="lib/jquery-2.1.4.min.js"></script>-->
 </body>
 </html>
 
