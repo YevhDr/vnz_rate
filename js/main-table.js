@@ -44,20 +44,20 @@ d3.csv(file, function (error, data) {
             return "sort('" + d + "')";
         });
 
-    d3.select("thead tr th:nth-child(2)")
+    d3.selectAll("thead tr th")
         .append("i")
-        .attr('class', 'fa fa-arrows-v')
+        .attr('class', 'fa fa-sort').style("font-size", "0.8em")
     ;
-
-    d3.select("thead tr th:nth-child(3)")
-        .append("i")
-        .attr('class', 'fa fa-arrows-v')
-    ;
-
-    d3.select("thead tr th:nth-child(6)")
-        .append("i")
-        .attr('class', 'fa fa-arrows-v')
-    ;
+    //
+    // d3.select("thead tr th:nth-child(3)")
+    //     .append("i")
+    //     .attr('class', 'fa fa-arrows-v')
+    // ;
+    //
+    // d3.select("thead tr th:nth-child(6)")
+    //     .append("i")
+    //     .attr('class', 'fa fa-arrows-v')
+    // ;
 
 
 // Add the table body rows.
@@ -95,17 +95,29 @@ d3.csv(file, function (error, data) {
     rows.append('td').text(function (d) {
         return d.budg_per_place;
     });
-    rows.append('td').text(function (d) {
-
-        if (d.price >= 1) {
+    rows.append('td')
+        .text(function (d) {
+            if (d.price > 1) {
             return d.price + " грн";
-        }
-        else {
-            return "дані відсутні"
-        }
+            }
+            else {
+                return "дані відсутні"
+            }
+        })
+
+        .attr("class", function (d){
+
+            if (d.price >= 20000) {
+                return "red"
+            } else if  (d.price < 20000 && d.price > 1) {
+                return "blue"
+            } else {
+                return "no-data"
+            }
+
+        });
 
 
-    });
     rows.append('td').text(function (d) {
         return d.scopus_public;
     });
@@ -124,9 +136,12 @@ d3.csv(file, function (error, data) {
         else {
             return "відсутні в рейтингу"
         }
-
-
-    });
+    })
+        .attr("class", function (d) {
+            if (d.rate_sort === 500) {
+                return "no-data"
+            }
+        });
 
 
 
@@ -184,6 +199,95 @@ d3.csv(file, function (error, data) {
     }).keyup(); <!----end of SEARCH 1 ----->
 
 
+
+    /* -------------- SEARCH 1------------------ */
+
+    $("#myInput").keyup(function () {
+
+        var value = $(this).val();
+        var tr = $("tbody tr");
+
+        if (value) {
+            var i = 0;
+            var re = new RegExp(value, "i");
+
+
+
+            data.forEach(function (d) {
+
+                if (!d.region.match(re)) {
+                    // alert(d.region + " is not " + re);
+                    d3.select(rows[0][i]).style("display", "none")
+                        .classed("sh", false);
+
+
+                } else if (d.region.match(re)) {
+                    // alert(d.region + " is  " + re);
+                    d3.select(rows[0][i]).style("display", "");
+
+                }
+                i++;
+            });
+
+            paginationList(50);
+
+        }
+        else {
+            d3.selectAll("tbody tr").classed("sh", false);
+            d3.selectAll("tbody tr").classed("sh", true);
+            $("tbody tr").show();
+            paginationList(50);
+
+            // return false;
+        }
+
+    }).keyup(); <!----end of SEARCH 1 ----->
+
+
+    /* -------------- SEARCH 2------------------ */
+
+    $("#input").keyup(function () {
+
+        var value = $(this).val();
+        var tr = $("tbody tr");
+
+        if (value) {
+            var i = 0;
+            var re = new RegExp(value, "i");
+
+
+
+            data.forEach(function (d) {
+
+                if (!d.univ.match(re)) {
+                    // alert(d.region + " is not " + re);
+                    d3.select(rows[0][i]).style("display", "none")
+                        .classed("sh", false);
+
+
+                } else if (d.univ.match(re)) {
+                    // alert(d.region + " is  " + re);
+                    d3.select(rows[0][i]).style("display", "");
+
+                }
+                i++;
+            });
+
+            paginationList(50);
+
+        }
+        else {
+            d3.selectAll("tbody tr").classed("sh", false);
+            d3.selectAll("tbody tr").classed("sh", true);
+            $("tbody tr").show();
+            paginationList(50);
+
+            // return false;
+        }
+
+    }).keyup(); <!----end of SEARCH 2 ----->
+
+
  /* -------------- RANGE SLIDER 1 ------------------ */
 
     $( function() {
@@ -206,12 +310,6 @@ d3.csv(file, function (error, data) {
 
                 data.forEach(function (d) {
 
-                    // if (s1From === 100 && s1To === 200 ) {
-                    //     d3.selectAll("tbody tr").classed("sh", true);
-                    //     d3.selectAll(rows[0]).style("display", "");
-                    // }
-                    //
-                    // else
                         if (d.mean >= s1From && d.mean <= s1To) {
                         d3.select(rows[0][i]).style("display", "")
                             .classed("sh", true);
@@ -259,22 +357,33 @@ d3.csv(file, function (error, data) {
                 var s2From = $( "#slider-range2" ).slider( "values", 0 );
                 var s2To = $( "#slider-range2" ).slider( "values", 1 );
 
+                d3.selectAll("tbody tr").classed("sh", false);
+
                 data.forEach(function (d) {
+
+                    if (s2From === 0 && s2To === 42178 ) {
+                        // ("умова виконана");
+                        d3.selectAll(rows[0]).style("display", "")
+                            .classed("sh", true);
+                    }
 
                     if (d.price > s2From && d.price < s2To) {
                         // ("умова виконана");
-                        d3.select(rows[0][i]).style("display", "");
-                        // alert(sFrom);
-                        // alert(sTo);
+                        d3.select(rows[0][i]).style("display", "")
+                            .classed("sh", true);
+                      }
 
-                    } else {
-                        d3.select(rows[0][i]).style("display", "none");
+                      else {
+                        d3.select(rows[0][i]).style("display", "none")
+                            .classed("sh", false);
 
 
 
                     }
                     i++;
                 });
+
+                paginationList(50);
 
             }
 
@@ -299,30 +408,30 @@ d3.csv(file, function (error, data) {
 
 /* -------------- SEARCH 1------------------ */
 
-function myFunction() {
-    // Declare variables
-    var input, filter, table, tr, td, i;
-    input = document.getElementById("input");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("table");
-    tr = table.getElementsByTagName("tr");
-
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            if (td
-                    .innerHTML
-                    .toUpperCase()
-                    .indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
-}
-
+// function myFunction() {
+//     // Declare variables
+//     var input, filter, table, tr, td, i;
+//     input = document.getElementById("input");
+//     filter = input.value.toUpperCase();
+//     table = document.getElementById("table");
+//     tr = table.getElementsByTagName("tr");
+//
+//     // Loop through all table rows, and hide those who don't match the search query
+//     for (i = 0; i < tr.length; i++) {
+//         td = tr[i].getElementsByTagName("td")[0];
+//         if (td) {
+//             if (td
+//                     .innerHTML
+//                     .toUpperCase()
+//                     .indexOf(filter) > -1) {
+//                 tr[i].style.display = "";
+//             } else {
+//                 tr[i].style.display = "none";
+//             }
+//         }
+//     }
+// }
+//
 
 
 

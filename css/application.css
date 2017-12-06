@@ -358,7 +358,10 @@ and also iPads specifically.
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   body {
     width: 495px; } }
-/* pagination*/
+#table td:nth-child(1) {
+  width: 30% !important; }
+
+/* ---------- pagination -------------*/
 div.pager {
   text-align: center;
   margin: 1em 0; }
@@ -383,6 +386,7 @@ th.des:after {
 th.aes:after {
   content: "\21E7"; }
 
+/*---------------- Bar charts ----------------- */
 .bar:hover {
   fill: #2ecc71; }
 
@@ -399,6 +403,7 @@ th.aes:after {
 .bar_shadow {
   fill: #e3e3e3; }
 
+/*---------------- Hover Tips ----------------- */
 .d3-tip {
   line-height: 1.3;
   font-weight: normal;
@@ -408,7 +413,6 @@ th.aes:after {
   border-radius: 2px;
   width: 100px; }
 
-/* Creates a small triangle extender for the tooltip */
 .d3-tip:after {
   box-sizing: border-box;
   display: inline;
@@ -420,7 +424,6 @@ th.aes:after {
   position: absolute;
   text-align: center; }
 
-/* Style northward tooltips differently */
 .d3-tip.n:after {
   margin: -1px 0 0 0;
   top: 100%;
@@ -433,5 +436,14 @@ th.aes:after {
 label {
   font-size: 0.8em !important;
   color: grey !important; }
+
+.red {
+  color: #cc523e; }
+
+.blue {
+  color: #3498db; }
+
+.no-data {
+  font-size: 0.8em; }
 
 /*# sourceMappingURL=application.css.map */
