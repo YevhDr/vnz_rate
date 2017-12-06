@@ -175,6 +175,7 @@ d3.csv(file, function (error, data) {
         else {
             d3.selectAll("tbody tr").classed("sh", false);
             d3.selectAll("tbody tr").classed("sh", true);
+            $("tbody tr").show();
             paginationList(50);
 
             // return false;
