@@ -64,7 +64,9 @@ d3.csv(file, function (error, data) {
     var rows = tableBody.selectAll('tr')
         .data(data)
         .enter()
-        .append('tr');
+        .append('tr')
+        .attr("class", "sh")
+        ;
 
     rows.append('td')
         .text(function (d) {
@@ -155,7 +157,9 @@ d3.csv(file, function (error, data) {
 
                      if (!d.region.match(re)) {
                             // alert(d.region + " is not " + re);
-                            d3.select(rows[0][i]).style("display", "none");
+                            d3.select(rows[0][i]).style("display", "none")
+                                .classed("sh", false);
+
 
                         } else if (d.region.match(re)) {
                             // alert(d.region + " is  " + re);
@@ -163,13 +167,17 @@ d3.csv(file, function (error, data) {
 
                         }
                         i++;
-                    })
+                    });
 
+            paginationList(50);
 
                 }
         else {
+            d3.selectAll("tbody tr").classed("sh", false);
+            d3.selectAll("tbody tr").classed("sh", true);
+            paginationList(50);
 
-            return false;
+            // return false;
         }
 
     }).keyup(); <!----end of SEARCH 1 ----->
@@ -180,7 +188,7 @@ d3.csv(file, function (error, data) {
     $( function() {
         $( "#slider-range" ).slider({
             range: true,
-            min: 100,
+            min: 0,
             max: 200,
             values: [100, 200],
             slide: function(event, ui ) {
@@ -193,25 +201,35 @@ d3.csv(file, function (error, data) {
                 var s1From = $( "#slider-range" ).slider( "values", 0 );
                 var s1To = $( "#slider-range" ).slider( "values", 1 );
 
+                d3.selectAll("tbody tr").classed("sh", false);
+
                 data.forEach(function (d) {
 
-                    if (d.mean > s1From && d.mean < s1To) {
-                        // ("умова виконана");
-                        d3.select(rows[0][i]).style("display", "");
-                        // alert(sFrom);
-                        // alert(sTo);
+                    // if (s1From === 100 && s1To === 200 ) {
+                    //     d3.selectAll("tbody tr").classed("sh", true);
+                    //     d3.selectAll(rows[0]).style("display", "");
+                    // }
+                    //
+                    // else
+                        if (d.mean >= s1From && d.mean <= s1To) {
+                        d3.select(rows[0][i]).style("display", "")
+                            .classed("sh", true);
 
-                    } else {
-                        d3.select(rows[0][i]).style("display", "none");
+                    }
+
+                    else {
+                        d3.select(rows[0][i])
+                            .style("display", "none")
+                            .classed("sh", false);
 
 
 
                     }
                     i++;
+
                 });
 
-                // alert($( "#slider-range" ).slider( "values", 0 ) + " + " + $( "#slider-range" ).slider( "values", 1 ));
-
+                paginationList(50);
 
         }
 

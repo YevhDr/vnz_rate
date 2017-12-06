@@ -290,7 +290,8 @@ p, li {
   padding: 0; }
 
 body {
-  font: 14px/1.4 Arial, Serif; }
+  font: 14px/1.4 Arial, Serif;
+  overflow-x: hidden !important; }
 
 #page-wrap {
   margin: 50px; }

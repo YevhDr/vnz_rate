@@ -1,8 +1,17 @@
 function paginationList(listPaginationCount) {
-    var numberOfItems = $('tbody tr').length;
+    $("li.current-page").remove();
+    $("li#next-page").remove();
+    $("li#previous-page").remove();
+    var numberOfItems = $('tbody tr.sh').length;
     var limitOfPages = listPaginationCount;
-    $("tbody tr:gt(" + (limitOfPages - 1) + ")").hide();
-    var totalPages = Math.round(numberOfItems / limitOfPages);
+
+    if (numberOfItems > limitOfPages) {
+        $("tbody tr.sh:gt(" + (limitOfPages - 1) + ")").hide();
+        var totalPages = Math.round(numberOfItems / limitOfPages);
+    } else {
+        var totalPages = 1;
+    }
+
 
 
     // Add previous current and next button
@@ -23,11 +32,11 @@ function paginationList(listPaginationCount) {
             var currentPage = $(this).index();
             $(".pagination li").removeClass("active");
             $(this).addClass("active");
-            $("tbody tr").hide();
+            $("tbody tr.sh").hide();
 
             var grandTotal = limitOfPages * currentPage;
             for (var i = grandTotal - limitOfPages; i < grandTotal; i++) {
-                $("tbody tr:eq(" + i + ")").show()
+                $("tbody tr.sh:eq(" + i + ")").show()
             }
         }
     });
@@ -40,10 +49,10 @@ function paginationList(listPaginationCount) {
         } else {
             currentPage++;
             $(".pagination li").removeClass("active");
-            $("tbody tr").hide();
+            $("tbody tr.sh").hide();
             var grandTotal = limitOfPages * currentPage;
             for (var i = grandTotal - limitOfPages; i < grandTotal; i++) {
-                $("tbody tr:eq(" + i + ")").show()
+                $("tbody tr.sh:eq(" + i + ")").show()
             }
             $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass("active");
         }
@@ -57,10 +66,10 @@ function paginationList(listPaginationCount) {
         } else {
             currentPage--;
             $(".pagination li").removeClass("active");
-            $("tbody tr").hide();
+            $("tbody tr.sh").hide();
             var grandTotal = limitOfPages * currentPage;
             for (var i = grandTotal - limitOfPages; i < grandTotal; i++) {
-                $("tbody tr:eq(" + i + ")").show()
+                $("tbody tr.sh:eq(" + i + ")").show()
             }
             $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass("active");
         }

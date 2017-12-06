@@ -8,9 +8,12 @@
 * {
   margin: 0;
   padding: 0;
+  //overflow-x: hidden;
+
 }
 body {
   font: 14px/1.4 Arial, Serif;
+  overflow-x: hidden!important;
 }
 
 #page-wrap {
