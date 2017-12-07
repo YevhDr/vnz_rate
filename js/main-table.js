@@ -328,7 +328,7 @@ d3.csv(file, function (error, data) {
     $( function() {
         $( "#slider-range" ).slider({
             range: true,
-            min: 0,
+            min: 100,
             max: 200,
             values: [100, 200],
             slide: function(event, ui ) {
@@ -345,7 +345,7 @@ d3.csv(file, function (error, data) {
 
                 data.forEach(function (d) {
 
-                        if (d.mean >= s1From && d.mean <= s1To) {
+                    if (d.mean >= s1From && d.mean <= s1To) {
                         d3.select(rows[0][i]).style("display", "")
                             .classed("sh", true);
 
