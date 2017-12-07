@@ -290,7 +290,7 @@ p, li {
   padding: 0; }
 
 body {
-  font: 14px/1.4 Arial, Serif;
+  font: 12px/1.4 Arial, Serif;
   overflow-x: hidden !important; }
 
 #page-wrap {
@@ -414,7 +414,7 @@ th.aes:after {
   text-decoration: underline; }
 
 label {
-  font-size: 0.8rem !important;
+  font-size: 1.5rem !important;
   color: grey !important; }
 
 .red {
