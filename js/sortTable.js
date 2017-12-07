@@ -2,68 +2,68 @@ var sort = function (stat) {
 
     var table = document.getElementById("table");
 
-    if (stat == "Назва ") {
-        return false
+        //---------- University ------------- //
+    //SORT DESCENDING
+
+
+    if (stat == "Назва " && $("thead tr th:nth-child(1)").hasClass('active-h') ) {
+
+        //--- delete ClassNames
+
+        d3.select(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(1) i")
+            .classed('fa-sort', false)
+            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+
+        //--- RePaginate
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        $("tbody tr").show();
+        paginationList(386);
+        d3.selectAll("tbody tr")
+            .sort(function (a, b) {
+                return d3.descending(a.univ, b.univ);
+            });
+        d3.selectAll("li.current-page").remove();
+        d3.selectAll("li#next-page").remove();
+        d3.selectAll("li#previous-page").remove();
+        paginationList(50);
+
     }
 
-    //---------- University ------------- //
-    // SORT DESCENDING
+    // -------SORT ASCENDING---------
+    else if (stat == "Назва ") {
+        //--- delete ClassNames
+        d3.select("thead tr th:nth-child(1) i").classed("fa-sort", false);
+        d3.selectAll(".active-h").classed("active-h", false); //end of delete ClassNames
 
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(1)")
+            .classed("active-h", true);
+        d3.select("thead tr th:nth-child(1) i")
+            .classed("fa-sort-up", true);//--- end of adding ClassNames
 
-    // if (stat == "Назва " && $("thead tr th:nth-child(1)").hasClass('active-h') ) {
-    //
-    //     //--- delete ClassNames
-    //     d3.selectAll(".aes").classed("aes", false);
-    //     d3.selectAll(".des").classed("des", false);
-    //     d3.select("thead tr th:nth-child(1)").classed("active-h", false); //end of delete ClassNames
-    //
-    //     //--- add ClassNames
-    //     d3.select("thead tr th:nth-child(1)").classed('des', true);
-    //
-    //     //--- RePaginate
-    //     $("li.current-page").remove();
-    //     $("li#next-page").remove();
-    //     $("li#previous-page").remove();
-    //     $("tbody tr").show();
-    //     paginationList(386);
-    //     d3.selectAll("tbody tr")
-    //         .sort(function (a, b) {
-    //             return d3.descending(a.univ, b.univ);
-    //         });
-    //     d3.selectAll("li.current-page").remove();
-    //     d3.selectAll("li#next-page").remove();
-    //     d3.selectAll("li#previous-page").remove();
-    //     paginationList(50);
-    //
-    // }
-    //
-    // // -------SORT ASCENDING---------
-    // else if (stat == "Назва ") {
-    //     //--- delete ClassNames
-    //     d3.selectAll(".aes").classed("aes", false);
-    //     d3.selectAll(".des") .classed("des", false);
-    //     d3.selectAll(".active-h").classed("active-h", false); //end of delete ClassNames
-    //
-    //     //--- add ClassNames
-    //     d3.select("thead tr th:nth-child(1)")
-    //         .classed("active-h", true)
-    //         .classed('aes', true);  //--- end of adding ClassNames
-    //
-    //     //--- RePaginate
-    //     $("li.current-page").remove();
-    //     $("li#next-page").remove();
-    //     $("li#previous-page").remove();
-    //     $("tbody tr").show();
-    //     paginationList(386);
-    //     d3.selectAll("tbody tr")
-    //         .sort(function (a, b) {
-    //             return d3.ascending(a.univ, b.univ);
-    //         });
-    //     d3.selectAll("li.current-page").remove();
-    //     d3.selectAll("li#next-page").remove();
-    //     d3.selectAll("li#previous-page").remove();
-    //     paginationList(50);
-    // }
+        //--- RePaginate
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        $("tbody tr").show();
+        paginationList(386);
+        d3.selectAll("tbody tr")
+            .sort(function (a, b) {
+                return d3.ascending(a.univ, b.univ);
+            });
+        d3.selectAll("li.current-page").remove();
+        d3.selectAll("li#next-page").remove();
+        d3.selectAll("li#previous-page").remove();
+        paginationList(50);
+    }
 
 //--------------------------------------- Mean ZNO --------------------------------- //
 
@@ -71,13 +71,17 @@ var sort = function (stat) {
     if (stat == "Середній бал ЗНО " && $("thead tr th:nth-child(2)").hasClass('active-h') ) {
 
         //--- delete ClassNames
-        d3.selectAll(".aes").classed("aes", false);
-        d3.selectAll(".des").classed("des", false);
-        d3.select(".active-h").classed("active-h", false); //end of delete ClassNames
+
+        d3.select(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        //end of delete ClassNames
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(2)")
-            .classed('aes', true); //--- end of adding ClassNames
+        d3.select("thead tr th:nth-child(2) i")
+            .classed('fa-sort', false)
+            .classed('fa-sort-desc', true); //--- end of adding ClassNames
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -99,14 +103,18 @@ var sort = function (stat) {
     }  else if (stat == "Середній бал ЗНО ") {
 
         //--- delete ClassNames
-        d3.selectAll(".aes").classed("aes", false);
-        d3.selectAll(".des").classed("des", false);
         d3.selectAll(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        d3.select("thead tr th:nth-child(2) i").classed("fa-sort", false);
+        //end of delete ClassNames
 
         //--- add ClassNames
-        d3.selectAll("thead tr th:nth-child(2)")
-            .classed("active-h", true)
-            .classed('des', true);
+        d3.select("thead tr th:nth-child(2)")
+            .classed("active-h", true);
+        d3.select("thead tr th:nth-child(2) i")
+            .classed('fa-sort-up', true);
 
 
         //--- RePaginate
@@ -130,14 +138,16 @@ var sort = function (stat) {
 
     if (stat == "Вартість контракту* " && $("thead tr th:nth-child(6)").hasClass('active-h') ) {
 
-        //--- delete ClassNames
-        d3.selectAll(".aes").classed("aes", false);
-        d3.selectAll(".des").classed("des", false);
-        d3.select(".active-h").classed("active-h", false); //end of delete ClassNames
+        d3.select(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        //end of delete ClassNames
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(6)")
-            .classed('aes', true); //--- end of adding ClassNames
+        d3.select("thead tr th:nth-child(6) i")
+            .classed('fa-sort', false)
+            .classed('fa-sort-desc', true); //--- end of adding ClassNames
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -159,14 +169,18 @@ var sort = function (stat) {
 
     else if (stat == "Вартість контракту* ") {
         //--- delete ClassNames
-        d3.selectAll(".aes").classed("aes", false);
-        d3.selectAll(".des").classed("des", false);
         d3.selectAll(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        d3.select("thead tr th:nth-child(6) i").classed("fa-sort", false);
+        //end of delete ClassNames
 
         //--- add ClassNames
-        d3.selectAll("thead tr th:nth-child(6)")
-            .classed("active-h", true)
-            .classed('des', true);
+        d3.select("thead tr th:nth-child(6)")
+            .classed("active-h", true);
+        d3.select("thead tr th:nth-child(6) i")
+            .classed('fa-sort-up', true);
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -189,13 +203,16 @@ var sort = function (stat) {
 
     if (stat == "Всього заяв " && $("thead tr th:nth-child(3)").hasClass('active-h') ) {
         //--- delete ClassNames
-        d3.selectAll(".aes").classed("aes", false);
-        d3.selectAll(".des").classed("des", false);
-        d3.select(".active-h").classed("active-h", false); //end of delete ClassNames
+        d3.select(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        //end of delete ClassNames
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(3)")
-            .classed('aes', true); //--- end of adding ClassNames
+        d3.select("thead tr th:nth-child(3) i")
+            .classed('fa-sort', false)
+            .classed('fa-sort-desc', true); //--- end of adding ClassNames
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -215,14 +232,18 @@ var sort = function (stat) {
     } else if(stat == "Всього заяв ") {
 
         //--- delete ClassNames
-        d3.selectAll(".aes").classed("aes", false);
-        d3.selectAll(".des").classed("des", false);
-        d3.select(".active-h").classed("active-h", false); //end of delete ClassNames
+        d3.selectAll(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        d3.select("thead tr th:nth-child(3) i").classed("fa-sort", false);
+        //end of delete ClassNames
 
         //--- add ClassNames
-        d3.selectAll("thead tr th:nth-child(3)")
-            .classed("active-h", true)
-            .classed('des', true);
+        d3.select("thead tr th:nth-child(3)")
+            .classed("active-h", true);
+        d3.select("thead tr th:nth-child(3) i")
+            .classed('fa-sort-up', true);
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -245,9 +266,51 @@ var sort = function (stat) {
 
 
 
-    if (stat == "Заяв на 1 місце ") {
+    if (stat == "Заяв на 1 місце " && $("thead tr th:nth-child(4)").hasClass('active-h') ) {
+        //--- delete ClassNames
+        d3.select(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        //end of delete ClassNames
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(4) i")
+            .classed('fa-sort', false)
+            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+
+        //--- RePaginate
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        $("tbody tr").show();
+        d3.selectAll("table tbody tr")
+            .sort(function (a, b) {
+                return d3.ascending(a.total_per_place, b.total_per_place);
+
+            });
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        paginationList(50);
+
+    } else if (stat == "Заяв на 1 місце ") {
+        //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
-        d3.selectAll("thead tr th:nth-child(5)").classed("active-h", true);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        d3.select("thead tr th:nth-child(4) i").classed("fa-sort", false);
+        //end of delete ClassNames
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(4)")
+            .classed("active-h", true);
+        d3.select("thead tr th:nth-child(4) i")
+            .classed('fa-sort-up', true);
+
+
+        //--- RePaginate
         $("li.current-page").remove();
         $("li#next-page").remove();
         $("li#previous-page").remove();
@@ -264,9 +327,52 @@ var sort = function (stat) {
 
     }
 
-    if (stat == "Заяв на 1 місце (бюджет) ") {
+    //--------------------------------------- APPS per PLACE (budget)--------------------------------- //
+
+    if (stat == "Заяв на 1 місце (бюджет) " && $("thead tr th:nth-child(5)").hasClass('active-h') ) {
+        //--- delete ClassNames
+        d3.select(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        //end of delete ClassNames
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(5) i")
+            .classed('fa-sort', false)
+            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+
+        //--- RePaginate
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        $("tbody tr").show();
+        d3.selectAll("table tbody tr")
+            .sort(function (a, b) {
+                return d3.ascending(a.budg_per_place, b.budg_per_place);
+
+            });
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        paginationList(50);
+
+    } else if (stat == "Заяв на 1 місце (бюджет) ") {
+        //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
-        d3.selectAll("thead tr th:nth-child(6)").classed("active-h", true);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        d3.select("thead tr th:nth-child(5) i").classed("fa-sort", false);
+        //end of delete ClassNames
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(5)")
+            .classed("active-h", true);
+        d3.select("thead tr th:nth-child(5) i")
+            .classed('fa-sort-up', true);
+
+        //--- RePaginate
         $("li.current-page").remove();
         $("li#next-page").remove();
         $("li#previous-page").remove();
@@ -282,10 +388,53 @@ var sort = function (stat) {
         paginationList(50);
 
     }
+//--------------------------------------- Scopus publications--------------------------------- //
 
-    if (stat == "К-ть публікацій (Scopus) ") {
+    if (stat == "К-ть публікацій (Scopus) " && $("thead tr th:nth-child(7)").hasClass('active-h') ) {
+        //--- delete ClassNames
+        d3.select(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        //end of delete ClassNames
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(7) i")
+            .classed('fa-sort', false)
+            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+
+        //--- RePaginate
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        $("tbody tr").show();
+        d3.selectAll("table tbody tr")
+            .sort(function (a, b) {
+                return d3.ascending(a.scopus_public, b.scopus_public);
+
+            });
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        paginationList(50);
+
+    } else if (stat == "К-ть публікацій (Scopus) ") {
+
+        //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
-        d3.selectAll("thead tr th:nth-child(7)").classed("active-h", true);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        d3.select("thead tr th:nth-child(7) i").classed("fa-sort", false);
+        //end of delete ClassNames
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(7)")
+            .classed("active-h", true);
+        d3.select("thead tr th:nth-child(7) i")
+            .classed('fa-sort-up', true);
+
+        //--- RePaginate
         $("li.current-page").remove();
         $("li#next-page").remove();
         $("li#previous-page").remove();
@@ -301,11 +450,52 @@ var sort = function (stat) {
         paginationList(50);
 
     }
+//--------------------------------------- Scopus qoutations --------------------------------- //
 
+    if (stat == "К-ть цитувань (Scopus) " && $("thead tr th:nth-child(8)").hasClass('active-h') ) {
+        //--- delete ClassNames
+        d3.select(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        //end of delete ClassNames
 
-    if (stat == "К-ть цитувань (Scopus) ") {
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(8) i")
+            .classed('fa-sort', false)
+            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+
+        //--- RePaginate
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        $("tbody tr").show();
+        d3.selectAll("table tbody tr")
+            .sort(function (a, b) {
+                return d3.ascending(a.scopus_qoutes, b.scopus_qoutes);
+
+            });
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        paginationList(50);
+
+    } else if (stat == "К-ть цитувань (Scopus) ") {
+        //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
-        d3.selectAll("thead tr th:nth-child(8)").classed("active-h", true);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        d3.select("thead tr th:nth-child(8) i").classed("fa-sort", false);
+        //end of delete ClassNames
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(8)")
+            .classed("active-h", true);
+        d3.select("thead tr th:nth-child(8) i")
+            .classed('fa-sort-up', true);
+
+        //--- RePaginate
         $("li.current-page").remove();
         $("li#next-page").remove();
         $("li#previous-page").remove();
@@ -320,9 +510,51 @@ var sort = function (stat) {
         paginationList(50);
     }
 
-    if (stat == "Місце в консолідованому рейтингу ") {
+    // ----------------------- OSVITA-UA --------------------------
+    if (stat == "Місце в консолідованому рейтингу " && $("thead tr th:nth-child(9)").hasClass('active-h') ) {
+        //--- delete ClassNames
+        d3.select(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        //end of delete ClassNames
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(9) i")
+            .classed('fa-sort', false)
+            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+
+        //--- RePaginate
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        $("tbody tr").show();
+        d3.selectAll("table tbody tr")
+            .sort(function (a, b) {
+                return d3.descending(a.rate_sort, b.rate_sort);
+
+            });
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        paginationList(50);
+
+    } else if (stat == "Місце в консолідованому рейтингу ") {
+        //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
-        d3.selectAll("thead tr th:nth-child(9)").classed("active-h", true);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        d3.select("thead tr th:nth-child(9) i").classed("fa-sort", false);
+        //end of delete ClassNames
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(9)")
+            .classed("active-h", true);
+        d3.select("thead tr th:nth-child(9) i")
+            .classed('fa-sort-up', true);
+
+        //--- RePaginate
         $("li.current-page").remove();
         $("li#next-page").remove();
         $("li#previous-page").remove();

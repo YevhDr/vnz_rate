@@ -57,7 +57,7 @@ var drawBar = function() {
                 .attr("height", 10)
                 .attr("fill", function() {
                     console.log ("red");
-                    if (data.to < 155) {
+                    if (data.mean < 138.9) {
                         return "#cc523e"
                     }
                     else {
@@ -80,7 +80,7 @@ var drawBar = function() {
                 svg.append("text")
                     .text(data.mean)
                     .attr("y", 30)
-                    .attr("x", data.mean - 110)
+                    .attr("x", data.mean - 120)
                     .style("fill", "grey")
                     .style("font-size", "1em")
                 ;

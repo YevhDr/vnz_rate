@@ -1,4 +1,4 @@
-var file = "data/data2.csv";
+var file = "data/data.csv";
 
 d3.csv(file, function (error, data) {
     if (error) throw error;
@@ -97,8 +97,10 @@ d3.csv(file, function (error, data) {
     });
     rows.append('td')
         .text(function (d) {
-            if (d.price > 1) {
-            return d.price + " грн";
+             if(d.year === "2016" || d.year === "2015") {
+                return d.price + "*" +  " грн";
+            } else if (d.price > 1 && d.year !== "2016" || d.price > 1 && d.year !== "2015" ) {
+                return d.price + " грн";
             }
             else {
                 return "дані відсутні"
@@ -107,10 +109,10 @@ d3.csv(file, function (error, data) {
 
         .attr("class", function (d){
 
-            if (d.price >= 20000) {
-                return "red"
-            } else if  (d.price < 20000 && d.price > 1) {
+            if (d.price >= 12714) {
                 return "blue"
+            } else if  (d.price < 12714 && d.price > 1) {
+                return "red"
             } else {
                 return "no-data"
             }
