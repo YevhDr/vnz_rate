@@ -332,12 +332,6 @@ and also iPads specifically.
   table, thead, tbody, th, td, tr {
     display: block; }
 
-  /* Hide table headers (but not display: none;, for accessibility) */
-  thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px; }
-
   tr {
     border: 1px solid #ccc; }
 
@@ -346,21 +340,7 @@ and also iPads specifically.
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
-    padding-left: 50%; }
-
-  /* Smartphones (portrait and landscape) ----------- */ }
-@media only screen and (max-width: 760px) and (min-device-width: 320px) and (max-device-width: 480px), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (min-device-width: 320px) and (max-device-width: 480px) {
-  body {
-    padding: 0;
-    margin: 0;
-    width: 320px; } }
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  body {
-    width: 495px; } }
-#table td:nth-child(1) {
-  width: 30% !important; }
-
+    padding-left: 50%; } }
 /* ---------- pagination -------------*/
 div.pager {
   text-align: center;
@@ -434,7 +414,7 @@ th.aes:after {
   text-decoration: underline; }
 
 label {
-  font-size: 0.8em !important;
+  font-size: 0.8rem !important;
   color: grey !important; }
 
 .red {
@@ -444,6 +424,6 @@ label {
   color: #3498db; }
 
 .no-data {
-  font-size: 0.8em; }
+  font-size: 1rem; }
 
 /*# sourceMappingURL=application.css.map */

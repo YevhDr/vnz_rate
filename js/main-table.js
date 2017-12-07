@@ -121,11 +121,44 @@ d3.csv(file, function (error, data) {
 
 
     rows.append('td').text(function (d) {
-        return d.scopus_public;
-    });
+        if (d.scopus_public > 0) {
+            return d.scopus_public;
+        } else {
+            return "дані відсутні"
+        }
+    })
+        .attr("class", function (d){
+
+            if (d.scopus_public == 0) {
+                return "no-data"
+            } else {
+                return false
+            }
+
+        });
+
+
     rows.append('td').text(function (d) {
-        return d.scopus_qoutes;
-    });
+        if (d.scopus_qoutes > 0) {
+            return d.scopus_qoutes;
+        } else {
+            return "дані відсутні"
+        }
+    })
+        .attr("class", function (d){
+
+            if (d.scopus_qoutes == 0) {
+                return "no-data"
+            } else {
+                return false
+            }
+
+        });
+
+
+
+
+
     rows.append('td').text(function (d) {
 
         if (d.rate_sort >= 1 && d.rate_sort < 500) {
