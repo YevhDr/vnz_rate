@@ -81,7 +81,7 @@ var sort = function (stat) {
         //--- add ClassNames
         d3.select("thead tr th:nth-child(2) i")
             .classed('fa-sort', false)
-            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+            .classed('fa-sort-up', true); //--- end of adding ClassNames
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -114,7 +114,7 @@ var sort = function (stat) {
         d3.select("thead tr th:nth-child(2)")
             .classed("active-h", true);
         d3.select("thead tr th:nth-child(2) i")
-            .classed('fa-sort-up', true);
+            .classed('fa-sort-desc', true);
 
 
         //--- RePaginate
@@ -147,7 +147,7 @@ var sort = function (stat) {
         //--- add ClassNames
         d3.select("thead tr th:nth-child(6) i")
             .classed('fa-sort', false)
-            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+            .classed('fa-sort-up', true); //--- end of adding ClassNames
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -180,7 +180,7 @@ var sort = function (stat) {
         d3.select("thead tr th:nth-child(6)")
             .classed("active-h", true);
         d3.select("thead tr th:nth-child(6) i")
-            .classed('fa-sort-up', true);
+            .classed('fa-sort-desc', true);
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -212,7 +212,7 @@ var sort = function (stat) {
         //--- add ClassNames
         d3.select("thead tr th:nth-child(3) i")
             .classed('fa-sort', false)
-            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+            .classed('fa-sort-up', true); //--- end of adding ClassNames
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -243,7 +243,7 @@ var sort = function (stat) {
         d3.select("thead tr th:nth-child(3)")
             .classed("active-h", true);
         d3.select("thead tr th:nth-child(3) i")
-            .classed('fa-sort-up', true);
+            .classed('fa-sort-desc', true);
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -277,7 +277,7 @@ var sort = function (stat) {
         //--- add ClassNames
         d3.select("thead tr th:nth-child(4) i")
             .classed('fa-sort', false)
-            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+            .classed('fa-sort-up', true); //--- end of adding ClassNames
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -307,7 +307,7 @@ var sort = function (stat) {
         d3.select("thead tr th:nth-child(4)")
             .classed("active-h", true);
         d3.select("thead tr th:nth-child(4) i")
-            .classed('fa-sort-up', true);
+            .classed('fa-sort-desc', true);
 
 
         //--- RePaginate
@@ -340,7 +340,7 @@ var sort = function (stat) {
         //--- add ClassNames
         d3.select("thead tr th:nth-child(5) i")
             .classed('fa-sort', false)
-            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+            .classed('fa-sort-up', true); //--- end of adding ClassNames
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -370,7 +370,7 @@ var sort = function (stat) {
         d3.select("thead tr th:nth-child(5)")
             .classed("active-h", true);
         d3.select("thead tr th:nth-child(5) i")
-            .classed('fa-sort-up', true);
+            .classed('fa-sort-desc', true);
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -401,7 +401,7 @@ var sort = function (stat) {
         //--- add ClassNames
         d3.select("thead tr th:nth-child(7) i")
             .classed('fa-sort', false)
-            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+            .classed('fa-sort-up', true); //--- end of adding ClassNames
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -432,7 +432,7 @@ var sort = function (stat) {
         d3.select("thead tr th:nth-child(7)")
             .classed("active-h", true);
         d3.select("thead tr th:nth-child(7) i")
-            .classed('fa-sort-up', true);
+            .classed('fa-sort-desc', true);
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -463,7 +463,7 @@ var sort = function (stat) {
         //--- add ClassNames
         d3.select("thead tr th:nth-child(8) i")
             .classed('fa-sort', false)
-            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+            .classed('fa-sort-up', true); //--- end of adding ClassNames
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -493,7 +493,7 @@ var sort = function (stat) {
         d3.select("thead tr th:nth-child(8)")
             .classed("active-h", true);
         d3.select("thead tr th:nth-child(8) i")
-            .classed('fa-sort-up', true);
+            .classed('fa-sort-desc', true);
 
         //--- RePaginate
         $("li.current-page").remove();
