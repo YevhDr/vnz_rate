@@ -1,4 +1,4 @@
-var file = "data/data.csv";
+var file = "data/data_new.csv";
 
 d3.csv(file, function (error, data) {
     if (error) throw error;
@@ -20,7 +20,8 @@ d3.csv(file, function (error, data) {
         d.from = formatValue(d.from);
         d.to = formatValue(d.to);
         d.from = +d.from;
-        d.to = +d.to
+        d.to = +d.to;
+        d.amountOfStudents = +d.amountOfStudents
 
     });
 
@@ -35,7 +36,7 @@ d3.csv(file, function (error, data) {
 
     // Add the table header content.
     tableHead.append('tr').selectAll('th')
-        .data(["Назва ", "Середній бал ЗНО ", "Всього заяв ", "Заяв на 1 місце ", "Заяв на 1 місце (бюджет) ", "Вартість контракту* ", "К-ть публікацій (Scopus) ", "К-ть цитувань (Scopus) ", "Місце в консолідованому рейтингу "]).enter()
+        .data(["Назва ", "Середній бал ЗНО ", "Всього заяв ", "Заяв на 1 місце ", "Заяв на 1 місце (бюджет) ", "Вартість контракту* ", "К-ть публікацій (Scopus) ", "К-ть цитувань (Scopus) ", "Кількість студентів "]).enter()
         .append('th')
         .text(function (d) {
             return d;
@@ -92,9 +93,11 @@ d3.csv(file, function (error, data) {
     rows.append('td').text(function (d) {
         return d.total_per_place;
     });
+
     rows.append('td').text(function (d) {
         return d.budg_per_place;
     });
+
     rows.append('td')
         .text(function (d) {
              if(d.year === "2016" || d.year === "2015") {
@@ -156,27 +159,29 @@ d3.csv(file, function (error, data) {
         });
 
 
-
-
-
     rows.append('td').text(function (d) {
+        return d.amountOfStudents;
+    });
 
-        if (d.rate_sort >= 1 && d.rate_sort < 500) {
-            return d.rate_place;
-        }
-        else if (d.rate_sort === 500) {
-            return "відсутні в рейтингу"
-        }
 
-        else {
-            return "відсутні в рейтингу"
-        }
-    })
-        .attr("class", function (d) {
-            if (d.rate_sort === 500) {
-                return "no-data"
-            }
-        });
+    // rows.append('td').text(function (d) {
+    //
+    //     if (d.rate_sort >= 1 && d.rate_sort < 500) {
+    //         return d.rate_place;
+    //     }
+    //     else if (d.rate_sort === 500) {
+    //         return "відсутні в рейтингу"
+    //     }
+    //
+    //     else {
+    //         return "відсутні в рейтингу"
+    //     }
+    // })
+    //     .attr("class", function (d) {
+    //         if (d.rate_sort === 500) {
+    //             return "no-data"
+    //         }
+    //     });
 
 
 

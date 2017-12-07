@@ -114,10 +114,12 @@ table {
 //{
 //  width: 10%;
 //}
-//#table td:nth-child(1)
-//{
-//  width: 30%!important;
-//}
+
+@media (min-width: 1024px) {
+  #table td:nth-child(1) {
+    width: 30% !important;
+  }
+}
 
 
 

@@ -25,7 +25,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(386);
+        paginationList(397);
         d3.selectAll("tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.univ, b.univ);
@@ -54,7 +54,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(386);
+        paginationList(397);
         d3.selectAll("tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.univ, b.univ);
@@ -88,7 +88,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(386);
+        paginationList(397);
         d3.selectAll('tbody tr')
             .sort(function (a, b) {
                 return d3.ascending(a.mean, b.mean);
@@ -122,7 +122,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(386);
+        paginationList(397);
         d3.selectAll('tbody tr')
             .sort(function (a, b) {
                 return d3.descending(a.mean, b.mean);
@@ -154,6 +154,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.price, b.price);
@@ -187,6 +188,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.price, b.price);
@@ -219,6 +221,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.total_apps, b.total_apps);
@@ -250,6 +253,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.total_apps, b.total_apps);
@@ -284,6 +288,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.total_per_place, b.total_per_place);
@@ -315,6 +320,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.total_per_place, b.total_per_place);
@@ -347,6 +353,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.budg_per_place, b.budg_per_place);
@@ -377,7 +384,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(386);
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.budg_per_place, b.budg_per_place);
@@ -408,6 +415,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.scopus_public, b.scopus_public);
@@ -439,6 +447,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.scopus_public, b.scopus_public);
@@ -470,6 +479,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.scopus_qoutes, b.scopus_qoutes);
@@ -500,6 +510,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.scopus_qoutes, b.scopus_qoutes);
@@ -511,7 +522,7 @@ var sort = function (stat) {
     }
 
     // ----------------------- OSVITA-UA --------------------------
-    if (stat == "Місце в консолідованому рейтингу " && $("thead tr th:nth-child(9)").hasClass('active-h') ) {
+    if (stat == "Кількість студентів " && $("thead tr th:nth-child(9)").hasClass('active-h') ) {
         //--- delete ClassNames
         d3.select(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -529,9 +540,10 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
-                return d3.descending(a.rate_sort, b.rate_sort);
+                return d3.ascending(a.amountOfStudents, b.amountOfStudents);
 
             });
         $("li.current-page").remove();
@@ -539,7 +551,7 @@ var sort = function (stat) {
         $("li#previous-page").remove();
         paginationList(50);
 
-    } else if (stat == "Місце в консолідованому рейтингу ") {
+    } else if (stat == "Кількість студентів ") {
         //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -559,9 +571,10 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
+        paginationList(397);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
-                return d3.ascending(a.rate_sort, b.rate_sort);
+                return d3.descending(a.amountOfStudents, b.amountOfStudents);
             });
         $("li.current-page").remove();
         $("li#next-page").remove();

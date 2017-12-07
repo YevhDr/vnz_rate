@@ -341,6 +341,9 @@ and also iPads specifically.
     border-bottom: 1px solid #eee;
     position: relative;
     padding-left: 50%; } }
+@media (min-width: 1024px) {
+  #table td:nth-child(1) {
+    width: 30% !important; } }
 /* ---------- pagination -------------*/
 div.pager {
   text-align: center;
