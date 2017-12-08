@@ -533,7 +533,7 @@ var sort = function (stat) {
         //--- add ClassNames
         d3.select("thead tr th:nth-child(9) i")
             .classed('fa-sort', false)
-            .classed('fa-sort-desc', true); //--- end of adding ClassNames
+            .classed('fa-sort-up', true); //--- end of adding ClassNames
 
         //--- RePaginate
         $("li.current-page").remove();
@@ -564,7 +564,7 @@ var sort = function (stat) {
         d3.select("thead tr th:nth-child(9)")
             .classed("active-h", true);
         d3.select("thead tr th:nth-child(9) i")
-            .classed('fa-sort-up', true);
+            .classed('fa-sort-desc', true);
 
         //--- RePaginate
         $("li.current-page").remove();
