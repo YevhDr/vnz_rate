@@ -36,7 +36,7 @@ d3.csv(file, function (error, data) {
 
     // Add the table header content.
     tableHead.append('tr').selectAll('th')
-        .data(["Назва ", "Середній бал ЗНО ", "Всього заяв ", "Заяв на 1 місце ", "Заяв на 1 місце (бюджет) ", "Вартість контракту* ", "К-ть публікацій (Scopus) ", "К-ть цитувань (Scopus) ", "Кількість студентів "]).enter()
+        .data(["Назва ", "Середній бал ЗНО ", "Всього заяв ", "Заяв на 1 місце ", "Заяв на 1 місце (бюджет) ", "Вартість контракту* ", "К-ть публікацій (Scopus-2017) ", "К-ть цитувань (Scopus-2017) ", "К-ть студентів "]).enter()
         .append('th')
         .text(function (d) {
             return d;
@@ -73,6 +73,13 @@ d3.csv(file, function (error, data) {
         .text(function (d) {
             return d.univ;
         })
+        .attr("class", "tolink")
+        .append("button")
+        .style("display", function(d){
+            return d.link ? null : "none";
+        })
+        .attr("class", "btn")
+        .text("До сайту")
         .style("cursor", "pointer")
         .attr("class", "link")
         .on("click", function (d) {

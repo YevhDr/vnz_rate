@@ -397,7 +397,7 @@ var sort = function (stat) {
     }
 //--------------------------------------- Scopus publications--------------------------------- //
 
-    if (stat == "К-ть публікацій (Scopus) " && $("thead tr th:nth-child(7)").hasClass('active-h') ) {
+    if (stat == "К-ть публікацій (Scopus-2017) " && $("thead tr th:nth-child(7)").hasClass('active-h') ) {
         //--- delete ClassNames
         d3.select(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -426,7 +426,7 @@ var sort = function (stat) {
         $("li#previous-page").remove();
         paginationList(50);
 
-    } else if (stat == "К-ть публікацій (Scopus) ") {
+    } else if (stat == "К-ть публікацій (Scopus-2017) ") {
 
         //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
@@ -461,7 +461,7 @@ var sort = function (stat) {
     }
 //--------------------------------------- Scopus qoutations --------------------------------- //
 
-    if (stat == "К-ть цитувань (Scopus) " && $("thead tr th:nth-child(8)").hasClass('active-h') ) {
+    if (stat == "К-ть цитувань (Scopus-2017) " && $("thead tr th:nth-child(8)").hasClass('active-h') ) {
         //--- delete ClassNames
         d3.select(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -490,7 +490,7 @@ var sort = function (stat) {
         $("li#previous-page").remove();
         paginationList(50);
 
-    } else if (stat == "К-ть цитувань (Scopus) ") {
+    } else if (stat == "К-ть цитувань (Scopus-2017) ") {
         //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -522,7 +522,7 @@ var sort = function (stat) {
     }
 
     // ----------------------- OSVITA-UA --------------------------
-    if (stat == "Кількість студентів " && $("thead tr th:nth-child(9)").hasClass('active-h') ) {
+    if (stat == "К-ть студентів " && $("thead tr th:nth-child(9)").hasClass('active-h') ) {
         //--- delete ClassNames
         d3.select(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -551,7 +551,7 @@ var sort = function (stat) {
         $("li#previous-page").remove();
         paginationList(50);
 
-    } else if (stat == "Кількість студентів ") {
+    } else if (stat == "К-ть студентів ") {
         //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
