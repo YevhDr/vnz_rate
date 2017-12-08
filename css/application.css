@@ -291,10 +291,24 @@ p, li {
   padding: 0; }
 
 body {
-  font: 12px/1.4 "PT Sans Caption", Serif;
+  font: 16px/1.4 "PT Sans Caption", Serif;
   color: #464749;
   overflow-x: hidden !important;
   background-color: #ffffff; }
+
+.jumbotron {
+  background-size: cover;
+  height: 50vh; }
+
+h1 {
+  font-size: 8rem !important;
+  text-align: center;
+  color: #3498db !important; }
+
+.sorting {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: text-top; }
 
 p {
   font-size: 1rem;
@@ -314,6 +328,13 @@ table {
   background-color: #ffffff;
   border-collapse: collapse; }
 
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+  z-index: 2;
+  color: #fff;
+  cursor: default;
+  background-color: #3498db !important;
+  border-color: #3498db !important; }
+
 thead > tr > th {
   padding: 15px !important; }
 
@@ -325,16 +346,16 @@ thead > tr > th {
   text-align: left !important; }
 
 tbody tr:hover {
-  background-color: #fbfbfb; }
+  background-color: #ffffff; }
 
 tbody > tr > td {
   vertical-align: middle !important; }
 
 th {
   background: rgba(243, 243, 243, 0.5);
-  border-top: 1px solid #272729 !important;
-  border-bottom: 1px solid #272729 !important;
-  color: #272729;
+  border-top: 1px solid #717274 !important;
+  border-bottom: 1px solid #717274 !important;
+  color: #717274;
   font-weight: normal;
   cursor: s-resize;
   background-repeat: no-repeat;
@@ -360,6 +381,9 @@ and also iPads specifically.
   #table td:nth-child(9) {
     width: 10%; }
 
+  #table td:nth-child(1) {
+    width: 30% !important; }
+
   #table td:nth-child(3),
   #table td:nth-child(4),
   #table td:nth-child(5),
@@ -380,8 +404,8 @@ div.pager span {
   line-height: 1.8;
   text-align: center;
   cursor: pointer;
-  background: #b5b6b8;
-  color: #fff;
+  background: rgba(243, 243, 243, 0.5);
+  color: #ffffff;
   margin-right: 0.5em; }
 
 div.pager span.active {
@@ -389,7 +413,7 @@ div.pager span.active {
 
 /*---------------- Bar charts ----------------- */
 .bar:hover {
-  fill: #db840b; }
+  fill: #717274; }
 
 .axis {
   font: 10px sans-serif; }
@@ -420,7 +444,7 @@ div.pager span.active {
   font-size: 6px;
   width: 100%;
   line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
+  color: #717274;
   content: "\25BC";
   position: absolute;
   text-align: center; }
@@ -441,10 +465,11 @@ input#myInput {
   padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 20px;
+  margin-top: 10px;
   color: #717274 !important; }
 
 .red {
-  color: #cc523e;
+  color: #ED1C24;
   font-weight: 800; }
 
 .blue {
@@ -454,24 +479,16 @@ input#myInput {
 .no-data {
   font-size: 1.0rem; }
 
-.tolink {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start; }
-
 button {
-  font-size: 1.2rem;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  font-size: 1rem;
   background-color: #717274;
-  color: white;
+  color: #fff;
   border: none;
   box-shadow: none;
   padding: 5px; }
 
 button:hover {
-  color: white;
+  color: #ffffff;
   background-color: #3498db; }
 
 .ui-slider-horizontal {
@@ -481,7 +498,7 @@ button:hover {
   border: 1px solid #3498db !important;
   background: #3498db !important;
   font-weight: normal;
-  color: #272729 !important; }
+  color: #717274 !important; }
 
 .ui-slider-horizontal .ui-slider-handle {
   top: -0.4em !important;
@@ -498,5 +515,11 @@ button:hover {
   cursor: default;
   -ms-touch-action: none;
   touch-action: none; }
+
+.grow {
+  transition: all .2s ease-in-out; }
+
+.grow:hover {
+  transform: scale(1.2); }
 
 /*# sourceMappingURL=application.css.map */

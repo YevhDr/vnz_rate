@@ -54,7 +54,6 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
 
-
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="lib/d3.tip.v0.6.3.js"></script>
     <script src='lib/share-behavior.js'></script>
@@ -71,9 +70,6 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 
-
-
-
 </head>
 <style>
 
@@ -86,97 +82,140 @@
 
 </header>
 
-<!--<div class="container">-->
-    <!--<div class="row">-->
-        <!--<p><b>Вартість</b> контракту вираховувалась по вартості спеціальностей, що є найбільш популярними цього року. Список набільш популярник тут: <a style="color:blue" href="http://mon.gov.ua/usi-novivni/novini/2017/09/14/top-10-najbilsh-ta-najmensh-populyarnix-speczialnostej-u-2017-roczi/" target="_blank">http://mon.gov.ua/usi-novivni/novini/2017/09/14/top-10-najbilsh-ta-najmensh-populyarnix-speczialnostej-u-2017-roczi/</a> В кожному ВНЗ брала ці спеціальності і виводила по ним середню, якщо жодної з них не було, тобі брала середню з наявних. Таким чином, можна порівнювати вартість в різних ВНЗ, навіть якщо в них різна спеціалізація. Там де біля ціни стоїть зірочка (*), то значить на сайті ВНЗ були дані за 2016 рік чи за 2015. Це буквально кілька випадків</p>-->
-        <!--<p>Публікації і цитування в Scopus - це показники того, як у ВНЗ розвивається наука, тобто чи розвивається, чи там просто викладають. Дані брала тут: <a  style="color:blue" href="http://osvita.ua/vnz/rating/55425/" target="_blank">http://osvita.ua/vnz/rating/55425/</a> </p>-->
-        <!--<p>Місце в консолідований рейтингу теж від OSVITA UA. Туди входять показники Scopus, Вебометрікс, і ТОП-200 Україна. Джерело тут: <a style="color:blue" href="http://ru.osvita.ua/vnz/rating/51741/" target="_blank">http://ru.osvita.ua/vnz/rating/51741/</a> </p>-->
-        <!--<p>Червоним підсвічено середнє ЗНО, де воно нижче за середнє в цілому. Так само із вартістю</p>-->
-        <!--<p>Назви ВНЗ є одночасно лінком на сайт</p>-->
 
-    <!--</div>-->
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <h1 class="typewriter">Рейтинг ВНЗ - 2017</h1>
+                <h3 class="lead"></h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var text = $('.typewriter').text();
+
+    var length = text.length;
+    var timeOut;
+    var character = 0;
+
+
+    (function typeWriter() {
+        timeOut = setTimeout(function () {
+            character++;
+            var type = text.substring(0, character);
+            $('.typewriter').text(type);
+            typeWriter();
+
+            if (character == length) {
+                clearTimeout(timeOut);
+            }
+
+        }, 200);
+
+
+    }());
+
+</script>
+
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<p><b>Вартість</b> контракту вираховувалась по вартості спеціальностей, що є найбільш популярними цього року. Список набільш популярник тут: <a style="color:blue" href="http://mon.gov.ua/usi-novivni/novini/2017/09/14/top-10-najbilsh-ta-najmensh-populyarnix-speczialnostej-u-2017-roczi/" target="_blank">http://mon.gov.ua/usi-novivni/novini/2017/09/14/top-10-najbilsh-ta-najmensh-populyarnix-speczialnostej-u-2017-roczi/</a> В кожному ВНЗ брала ці спеціальності і виводила по ним середню, якщо жодної з них не було, тобі брала середню з наявних. Таким чином, можна порівнювати вартість в різних ВНЗ, навіть якщо в них різна спеціалізація. Там де біля ціни стоїть зірочка (*), то значить на сайті ВНЗ були дані за 2016 рік чи за 2015. Це буквально кілька випадків</p>-->
+<!--<p>Публікації і цитування в Scopus - це показники того, як у ВНЗ розвивається наука, тобто чи розвивається, чи там просто викладають. Дані брала тут: <a  style="color:blue" href="http://osvita.ua/vnz/rating/55425/" target="_blank">http://osvita.ua/vnz/rating/55425/</a> </p>-->
+<!--<p>Місце в консолідований рейтингу теж від OSVITA UA. Туди входять показники Scopus, Вебометрікс, і ТОП-200 Україна. Джерело тут: <a style="color:blue" href="http://ru.osvita.ua/vnz/rating/51741/" target="_blank">http://ru.osvita.ua/vnz/rating/51741/</a> </p>-->
+<!--<p>Червоним підсвічено середнє ЗНО, де воно нижче за середнє в цілому. Так само із вартістю</p>-->
+<!--<p>Назви ВНЗ є одночасно лінком на сайт</p>-->
+
+<!--</div>-->
 <!--</div>-->
 
 <!---------- ZNO-slider ------->
-<div class="container" style="margin-top: 50px">
-    <div class="row">
-        <div class="col-md-offset-1 col-md-3">
-
-<p>
-    <div class="input-group">Фільтрувати за результатами ЗНО</div>
-    <input type="text" id="amount" readonly style="border:0; color:#3498db; font-weight:bold; font-size: 1.5rem">
-</p>
+<div class="container">
+    <div class="row sorting">
 
 
-<div id="slider-range"></div>
-
+        <div >
+            <div class="input-group" style="margin-top: 50px; text-align: left!important;"><span>Пошук за ВНЗ  </span>
+                <input type="text" id="input"
+                       placeholder="напр. Шевченка">
+            </div>
         </div>
 
-        <div class="col-md-offset-3 col-md-3">
+
+        <div >
 
             <p>
-                <div class="input-group">Фільтрувати за вартістю навчання</div>
-                <input type="text" id="amount2" readonly style="border:0; color:#3498db; font-weight:bold; font-size: 1.5rem">
+            <div class="input-group">Середній бал ЗНО</div>
+            <div id="slider-range" style="margin-top:20px; margin-bottom: 10px;"></div>
+            <input type="text" id="amount" style="border:0; text-align: center;">
             </p>
 
 
-            <div id="slider-range2"></div>
+
 
         </div>
-    </div>
+
+        <div >
+
+            <p>
+            <div class="input-group">Вартість контракту, грн</div>
+            <div id="slider-range2" style="margin-top:20px; margin-bottom: 10px;"></div>
+            <input type="text" id="amount2" style="border:0; text-align: center;">
+            </p>
 
 
 
 
-<!---------- PRICE-slider ------->
-
-<!--<div class="container">-->
-    <!--<div class="row">-->
-        <!---->
-    <!--</div> &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45; end of slider&#45;&#45;&#45;&#45;&ndash;&gt;-->
-<!--</div>-->
-
-<div class="row">
-    <div class="col-md-offset-1 col-md-3">
-        <div class="input-group" style="margin-top: 50px; text-align: left!important;"><span>Пошук за ВНЗ  </span>
-            <input type="text" id="input"
-                   placeholder="напр. Шевченка">
         </div>
-    </div>
-    <div class="col-md-offset-3 col-md-4">
-        <div class="input-group" style="margin-top: 50px; text-align: left"><span>Пошук за областю </span>
-            <input type="text" id="myInput"
-                   placeholder="напр. Харківська...">
+        <div >
+            <div class="input-group" style="margin-top: 50px; text-align: left"><span>Пошук за областю </span>
+                <input type="text" id="myInput"
+                       placeholder="напр. Харківська...">
+            </div>
         </div>
+
+
     </div>
 </div>
 
-</div>
-
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-md-offset-4 col-md-4">
 
-<nav style="text-align: center; font-size: 0.8rem; color:grey;" aria-label="page-navigation">
-    <ul class="pagination" style="margin-top: 50px;">
-    </ul>
-</nav>
-        </div>
-
-    </div>
-</div>
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-10">
-
-<table id="table" style="width: 100%; margin-left:10%"></table>
+            <nav style="text-align: center; font-size: 0.8rem; color:grey;" aria-label="page-navigation">
+                <ul class="pagination" style="margin-top: 50px;">
+                </ul>
+            </nav>
         </div>
 
     </div>
 </div>
 
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <table id="table" style="width: 100%;"></table>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+
+            <nav style="text-align: center; font-size: 0.8rem; color:grey;" aria-label="page-navigation">
+                <ul class="pagination" style="margin-top: 50px;">
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</div>
 
 
 <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
@@ -294,7 +333,6 @@
         </div>
     </div>
 </footer>
-
 
 
 <!--<script src="lib/jquery-2.1.4.min.js"></script>-->

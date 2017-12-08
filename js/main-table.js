@@ -21,8 +21,9 @@ d3.csv(file, function (error, data) {
         d.to = formatValue(d.to);
         d.from = +d.from;
         d.to = +d.to;
-        d.amountOfStudents = +d.amountOfStudents;
-        d.scopus_per_student = +d.scopus_per_student
+        d.scopus_per_student = formatValue(d.scopus_per_student);
+        d.scopus_per_student = +d.scopus_per_student;
+        d.QtoP = +d.QtoP
 
     });
 
@@ -37,7 +38,7 @@ d3.csv(file, function (error, data) {
 
     // Add the table header content.
     tableHead.append('tr').selectAll('th')
-        .data(["Назва ", "Середній бал ЗНО ", "Всього заяв ", "Заяв на 1 місце ", "Заяв на 1 місце (бюджет) ", "Вартість контракту* ", "К-ть публікацій (Scopus-2017) ", "К-ть цитувань (Scopus-2017) ", "Вступило баклаврів "]).enter()
+        .data(["Назва ", "Середній бал ЗНО ", "Вартість контракту, грн* ", "Всього заяв ", "Заяв на 1 місце ", "Заяв на 1 місце (бюджет) ",  "Наука (публікації, Scopus) ", "Наука (цитування, Scopus) "]).enter()
         .append('th')
         .text(function (d) {
             return d;
@@ -68,24 +69,27 @@ d3.csv(file, function (error, data) {
         .enter()
         .append('tr')
         .attr("class", "sh")
+
         ;
 
     rows.append('td')
         .text(function (d) {
-            return d.univ;
+            return d.univ + "   ";
         })
         .attr("class", "tolink")
         .append("button")
         .style("display", function(d){
             return d.link ? null : "none";
         })
-        .attr("class", "btn")
-        .text("До сайту")
+        .text("  >")
         .style("cursor", "pointer")
         .attr("class", "link")
         .on("click", function (d) {
             return window.open(d.link);
         });
+
+
+
 
 
     //Add the spark chart.
@@ -95,23 +99,13 @@ d3.csv(file, function (error, data) {
         })
         .call(drawBar());
 
-    rows.append('td').text(function (d) {
-        return d.total_apps;
-    });
-    rows.append('td').text(function (d) {
-        return d.total_per_place;
-    });
-
-    rows.append('td').text(function (d) {
-        return d.budg_per_place;
-    });
 
     rows.append('td')
         .text(function (d) {
-             if(d.year === "2016" || d.year === "2015") {
-                return d.price + "*" +  " грн";
+            if(d.year === "2016" || d.year === "2015") {
+                return d.price + "*";
             } else if (d.price > 1 && d.year !== "2016" || d.price > 1 && d.year !== "2015" ) {
-                return d.price + " грн";
+                return d.price;
             }
             else {
                 return "дані відсутні"
@@ -130,71 +124,56 @@ d3.csv(file, function (error, data) {
 
         });
 
-
     rows.append('td').text(function (d) {
-        if (d.scopus_public > 0) {
-            return d.scopus_public;
-        } else {
-            return "дані відсутні"
-        }
-    })
-        .attr("class", function (d){
-
-            if (d.scopus_public == 0) {
-                return "no-data"
-            } else {
-                return false
-            }
-
-        });
-
-
+        return d.total_apps;
+    });
     rows.append('td').text(function (d) {
-        if (d.scopus_qoutes > 0) {
-            return d.scopus_qoutes;
-        } else {
-            return "дані відсутні"
-        }
-    })
-        .attr("class", function (d){
-
-            if (d.scopus_qoutes == 0) {
-                return "no-data"
-            } else {
-                return false
-            }
-
-        });
-
-
-    rows.append('td').text(function (d) {
-        return d.amountOfStudents;
+        return d.total_per_place;
     });
 
-    // rows.append('td').text(function (d) {
-    //     return d.scopus_per_student;
-    // });
+    rows.append('td').text(function (d) {
+        return d.budg_per_place;
+    });
 
 
 
-    // rows.append('td').text(function (d) {
-    //
-    //     if (d.rate_sort >= 1 && d.rate_sort < 500) {
-    //         return d.rate_place;
-    //     }
-    //     else if (d.rate_sort === 500) {
-    //         return "відсутні в рейтингу"
-    //     }
-    //
-    //     else {
-    //         return "відсутні в рейтингу"
-    //     }
-    // })
-    //     .attr("class", function (d) {
-    //         if (d.rate_sort === 500) {
-    //             return "no-data"
-    //         }
-    //     });
+    rows.append('td').text(function (d) {
+        if (d.scopus_per_student > 0) {
+            return d.scopus_per_student;
+        } else {
+            return "дані відсутні"
+        }
+    })
+        .attr("class", function (d){
+
+            if (d.scopus_per_student === 0) {
+                return "no-data"
+            } else {
+                return false
+            }
+
+        });
+
+
+    rows.append('td').text(function (d) {
+        if (d.QtoP > 0) {
+            return d.QtoP;
+        } else if (d.QtoP === -1) {
+            return "у 2017 р. не було публікацій"
+        } else if (d.QtoP === 0) {
+            return "немає даних"
+        }
+    })
+        .attr("class", function (d){
+
+            if (d.scopus_qoutes === 0 || d.QtoP === -1) {
+                return "no-data"
+            } else {
+                return false
+            }
+
+        });
+
 
 
 
@@ -442,7 +421,7 @@ d3.csv(file, function (error, data) {
 
         });
         $( "#amount2" ).val( $( "#slider-range2" ).slider( "values", 0 ) +
-            " грн - " + $( "#slider-range2" ).slider( "values", 1 ) + " грн");
+            " - " + $( "#slider-range2" ).slider( "values", 1 ));
 
 
     } );  /* --------- end of Slider 1 ------------ */

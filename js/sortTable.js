@@ -25,7 +25,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll("tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.univ, b.univ);
@@ -54,7 +54,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll("tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.univ, b.univ);
@@ -88,7 +88,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll('tbody tr')
             .sort(function (a, b) {
                 return d3.ascending(a.mean, b.mean);
@@ -122,7 +122,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll('tbody tr')
             .sort(function (a, b) {
                 return d3.descending(a.mean, b.mean);
@@ -136,75 +136,8 @@ var sort = function (stat) {
 
 //--------------------------------------- PRICE --------------------------------- //
 
-    if (stat == "Вартість контракту* " && $("thead tr th:nth-child(6)").hasClass('active-h') ) {
+    if (stat == "Вартість контракту, грн* " && $("thead tr th:nth-child(3)").hasClass('active-h') ) {
 
-        d3.select(".active-h").classed("active-h", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
-        d3.selectAll("thead tr th i").classed("fa-sort", true);
-        //end of delete ClassNames
-
-        //--- add ClassNames
-        d3.select("thead tr th:nth-child(6) i")
-            .classed('fa-sort', false)
-            .classed('fa-sort-up', true); //--- end of adding ClassNames
-
-        //--- RePaginate
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        $("tbody tr").show();
-        paginationList(397);
-        d3.selectAll("tbody tr")
-            .sort(function (a, b) {
-                return d3.ascending(a.price, b.price);
-
-            });
-
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        paginationList(50);
-
-    }
-
-    else if (stat == "Вартість контракту* ") {
-        //--- delete ClassNames
-        d3.selectAll(".active-h").classed("active-h", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
-        d3.selectAll("thead tr th i").classed("fa-sort", true);
-        d3.select("thead tr th:nth-child(6) i").classed("fa-sort", false);
-        //end of delete ClassNames
-
-        //--- add ClassNames
-        d3.select("thead tr th:nth-child(6)")
-            .classed("active-h", true);
-        d3.select("thead tr th:nth-child(6) i")
-            .classed('fa-sort-desc', true);
-
-        //--- RePaginate
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        $("tbody tr").show();
-        paginationList(397);
-        d3.selectAll("tbody tr")
-            .sort(function (a, b) {
-                return d3.descending(a.price, b.price);
-
-            });
-
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        paginationList(50);
-    }
-
-//--------------------------------------- Total APPS --------------------------------- //
-
-    if (stat == "Всього заяв " && $("thead tr th:nth-child(3)").hasClass('active-h') ) {
-        //--- delete ClassNames
         d3.select(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
         d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
@@ -221,7 +154,74 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
+        d3.selectAll("tbody tr")
+            .sort(function (a, b) {
+                return d3.ascending(a.price, b.price);
+
+            });
+
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        paginationList(50);
+
+    }
+
+    else if (stat == "Вартість контракту, грн* ") {
+        //--- delete ClassNames
+        d3.selectAll(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        d3.select("thead tr th:nth-child(6) i").classed("fa-sort", false);
+        //end of delete ClassNames
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(3)")
+            .classed("active-h", true);
+        d3.select("thead tr th:nth-child(3) i")
+            .classed('fa-sort-desc', true);
+
+        //--- RePaginate
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        $("tbody tr").show();
+        paginationList(398);
+        d3.selectAll("tbody tr")
+            .sort(function (a, b) {
+                return d3.descending(a.price, b.price);
+
+            });
+
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        paginationList(50);
+    }
+
+//--------------------------------------- Total APPS --------------------------------- //
+
+    if (stat == "Всього заяв " && $("thead tr th:nth-child(4)").hasClass('active-h') ) {
+        //--- delete ClassNames
+        d3.select(".active-h").classed("active-h", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+        d3.selectAll("thead tr th i").classed("fa-sort", true);
+        //end of delete ClassNames
+
+        //--- add ClassNames
+        d3.select("thead tr th:nth-child(4) i")
+            .classed('fa-sort', false)
+            .classed('fa-sort-up', true); //--- end of adding ClassNames
+
+        //--- RePaginate
+        $("li.current-page").remove();
+        $("li#next-page").remove();
+        $("li#previous-page").remove();
+        $("tbody tr").show();
+        paginationList(398);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.total_apps, b.total_apps);
@@ -243,9 +243,9 @@ var sort = function (stat) {
         //end of delete ClassNames
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(3)")
+        d3.select("thead tr th:nth-child(4)")
             .classed("active-h", true);
-        d3.select("thead tr th:nth-child(3) i")
+        d3.select("thead tr th:nth-child(4) i")
             .classed('fa-sort-desc', true);
 
         //--- RePaginate
@@ -253,7 +253,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.total_apps, b.total_apps);
@@ -270,7 +270,7 @@ var sort = function (stat) {
 
 
 
-    if (stat == "Заяв на 1 місце " && $("thead tr th:nth-child(4)").hasClass('active-h') ) {
+    if (stat == "Заяв на 1 місце " && $("thead tr th:nth-child(5)").hasClass('active-h') ) {
         //--- delete ClassNames
         d3.select(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -279,7 +279,7 @@ var sort = function (stat) {
         //end of delete ClassNames
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(4) i")
+        d3.select("thead tr th:nth-child(5) i")
             .classed('fa-sort', false)
             .classed('fa-sort-up', true); //--- end of adding ClassNames
 
@@ -288,7 +288,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.total_per_place, b.total_per_place);
@@ -309,9 +309,9 @@ var sort = function (stat) {
         //end of delete ClassNames
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(4)")
+        d3.select("thead tr th:nth-child(5)")
             .classed("active-h", true);
-        d3.select("thead tr th:nth-child(4) i")
+        d3.select("thead tr th:nth-child(5) i")
             .classed('fa-sort-desc', true);
 
 
@@ -320,7 +320,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.total_per_place, b.total_per_place);
@@ -335,7 +335,7 @@ var sort = function (stat) {
 
     //--------------------------------------- APPS per PLACE (budget)--------------------------------- //
 
-    if (stat == "Заяв на 1 місце (бюджет) " && $("thead tr th:nth-child(5)").hasClass('active-h') ) {
+    if (stat == "Заяв на 1 місце (бюджет) " && $("thead tr th:nth-child(6)").hasClass('active-h') ) {
         //--- delete ClassNames
         d3.select(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -344,7 +344,7 @@ var sort = function (stat) {
         //end of delete ClassNames
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(5) i")
+        d3.select("thead tr th:nth-child(6) i")
             .classed('fa-sort', false)
             .classed('fa-sort-up', true); //--- end of adding ClassNames
 
@@ -353,7 +353,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.budg_per_place, b.budg_per_place);
@@ -374,9 +374,9 @@ var sort = function (stat) {
         //end of delete ClassNames
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(5)")
+        d3.select("thead tr th:nth-child(6)")
             .classed("active-h", true);
-        d3.select("thead tr th:nth-child(5) i")
+        d3.select("thead tr th:nth-child(6) i")
             .classed('fa-sort-desc', true);
 
         //--- RePaginate
@@ -384,7 +384,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.budg_per_place, b.budg_per_place);
@@ -397,7 +397,7 @@ var sort = function (stat) {
     }
 //--------------------------------------- Scopus publications--------------------------------- //
 
-    if (stat == "К-ть публікацій (Scopus-2017) " && $("thead tr th:nth-child(7)").hasClass('active-h') ) {
+    if (stat == "Наука (публікації, Scopus) " && $("thead tr th:nth-child(7)").hasClass('active-h') ) {
         //--- delete ClassNames
         d3.select(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -415,10 +415,10 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
-                return d3.ascending(a.scopus_public, b.scopus_public);
+                return d3.ascending(a.scopus_per_student, b.scopus_per_student);
 
             });
         $("li.current-page").remove();
@@ -426,7 +426,7 @@ var sort = function (stat) {
         $("li#previous-page").remove();
         paginationList(50);
 
-    } else if (stat == "К-ть публікацій (Scopus-2017) ") {
+    } else if (stat == "Наука (публікації, Scopus) ") {
 
         //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
@@ -447,10 +447,10 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
-                return d3.descending(a.scopus_public, b.scopus_public);
+                return d3.descending(a.scopus_per_student, b.scopus_per_student);
 
             });
         $("li.current-page").remove();
@@ -461,7 +461,7 @@ var sort = function (stat) {
     }
 //--------------------------------------- Scopus qoutations --------------------------------- //
 
-    if (stat == "К-ть цитувань (Scopus-2017) " && $("thead tr th:nth-child(8)").hasClass('active-h') ) {
+    if (stat == "Наука (цитування, Scopus) " && $("thead tr th:nth-child(8)").hasClass('active-h') ) {
         //--- delete ClassNames
         d3.select(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -479,10 +479,10 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
-                return d3.ascending(a.scopus_qoutes, b.scopus_qoutes);
+                return d3.ascending(a.QtoP, b.QtoP);
 
             });
         $("li.current-page").remove();
@@ -490,7 +490,7 @@ var sort = function (stat) {
         $("li#previous-page").remove();
         paginationList(50);
 
-    } else if (stat == "К-ть цитувань (Scopus-2017) ") {
+    } else if (stat == "Наука (цитування, Scopus) ") {
         //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -510,10 +510,10 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(397);
+        paginationList(398);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
-                return d3.descending(a.scopus_qoutes, b.scopus_qoutes);
+                return d3.descending(a.QtoP, b.QtoP);
             });
         $("li.current-page").remove();
         $("li#next-page").remove();
@@ -521,66 +521,66 @@ var sort = function (stat) {
         paginationList(50);
     }
 
-    // ----------------------- OSVITA-UA --------------------------
-    if (stat == "Вступило баклаврів " && $("thead tr th:nth-child(9)").hasClass('active-h') ) {
-        //--- delete ClassNames
-        d3.select(".active-h").classed("active-h", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
-        d3.selectAll("thead tr th i").classed("fa-sort", true);
-        //end of delete ClassNames
-
-        //--- add ClassNames
-        d3.select("thead tr th:nth-child(9) i")
-            .classed('fa-sort', false)
-            .classed('fa-sort-up', true); //--- end of adding ClassNames
-
-        //--- RePaginate
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        $("tbody tr").show();
-        paginationList(397);
-        d3.selectAll("table tbody tr")
-            .sort(function (a, b) {
-                return d3.ascending(a.amountOfStudents, b.amountOfStudents);
-
-            });
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        paginationList(50);
-
-    } else if (stat == "Вступило баклаврів ") {
-        //--- delete ClassNames
-        d3.selectAll(".active-h").classed("active-h", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
-        d3.selectAll("thead tr th i").classed("fa-sort", true);
-        d3.select("thead tr th:nth-child(9) i").classed("fa-sort", false);
-        //end of delete ClassNames
-
-        //--- add ClassNames
-        d3.select("thead tr th:nth-child(9)")
-            .classed("active-h", true);
-        d3.select("thead tr th:nth-child(9) i")
-            .classed('fa-sort-desc', true);
-
-        //--- RePaginate
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        $("tbody tr").show();
-        paginationList(397);
-        d3.selectAll("table tbody tr")
-            .sort(function (a, b) {
-                return d3.descending(a.amountOfStudents, b.amountOfStudents);
-            });
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        paginationList(50);
-    }
+    // // ----------------------- OSVITA-UA --------------------------
+    // if (stat == "Вступників (бакалаврат) " && $("thead tr th:nth-child(9)").hasClass('active-h') ) {
+    //     //--- delete ClassNames
+    //     d3.select(".active-h").classed("active-h", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort", true);
+    //     //end of delete ClassNames
+    //
+    //     //--- add ClassNames
+    //     d3.select("thead tr th:nth-child(9) i")
+    //         .classed('fa-sort', false)
+    //         .classed('fa-sort-up', true); //--- end of adding ClassNames
+    //
+    //     //--- RePaginate
+    //     $("li.current-page").remove();
+    //     $("li#next-page").remove();
+    //     $("li#previous-page").remove();
+    //     $("tbody tr").show();
+    //     paginationList(398);
+    //     d3.selectAll("table tbody tr")
+    //         .sort(function (a, b) {
+    //             return d3.ascending(a.amountOfStudents, b.amountOfStudents);
+    //
+    //         });
+    //     $("li.current-page").remove();
+    //     $("li#next-page").remove();
+    //     $("li#previous-page").remove();
+    //     paginationList(50);
+    //
+    // } else if (stat == "Вступників (бакалаврат) ") {
+    //     //--- delete ClassNames
+    //     d3.selectAll(".active-h").classed("active-h", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort", true);
+    //     d3.select("thead tr th:nth-child(9) i").classed("fa-sort", false);
+    //     //end of delete ClassNames
+    //
+    //     //--- add ClassNames
+    //     d3.select("thead tr th:nth-child(9)")
+    //         .classed("active-h", true);
+    //     d3.select("thead tr th:nth-child(9) i")
+    //         .classed('fa-sort-desc', true);
+    //
+    //     //--- RePaginate
+    //     $("li.current-page").remove();
+    //     $("li#next-page").remove();
+    //     $("li#previous-page").remove();
+    //     $("tbody tr").show();
+    //     paginationList(398);
+    //     d3.selectAll("table tbody tr")
+    //         .sort(function (a, b) {
+    //             return d3.descending(a.amountOfStudents, b.amountOfStudents);
+    //         });
+    //     $("li.current-page").remove();
+    //     $("li#next-page").remove();
+    //     $("li#previous-page").remove();
+    //     paginationList(50);
+    // }
 
 };
 
