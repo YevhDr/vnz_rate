@@ -314,6 +314,9 @@ table {
   background-color: #f3f3f3;
   border-collapse: collapse; }
 
+thead > tr > th {
+  padding: 10px !important; }
+
 .table > thead > tr > th {
   vertical-align: middle !important;
   text-align: center; }
@@ -328,9 +331,11 @@ tbody > tr > td {
   vertical-align: middle !important; }
 
 th {
-  background: #717274;
-  color: white;
-  font-weight: bold;
+  background: #ffffff;
+  border-top: 1px solid #272729 !important;
+  border-bottom: 1px solid #272729 !important;
+  color: #272729;
+  font-weight: normal;
   cursor: s-resize;
   background-repeat: no-repeat;
   background-position: 3% center; }
@@ -343,14 +348,7 @@ and also iPads specifically.
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
   /* Force table to not be like tables anymore */
   table, thead, tbody, th, td, tr {
-    display: block; }
-
-  td {
-    /* Behave  like a "row" */
-    border: none;
-    border-left: 1px solid #8e8f91 !important;
-    position: relative;
-    padding-left: 50%; } }
+    display: block; } }
 @media (min-width: 1024px) {
   #table td:nth-child(2),
   #table td:nth-child(3),
@@ -454,7 +452,7 @@ input#myInput {
   font-weight: 800; }
 
 .no-data {
-  font-size: 1.2rem; }
+  font-size: 1.0rem; }
 
 .tolink {
   display: flex;

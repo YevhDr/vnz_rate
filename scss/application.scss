@@ -43,7 +43,9 @@ table {
   border-collapse: collapse;
 }
 
-
+thead>tr>th {
+  padding:10px!important;
+}
 
 .table>thead>tr>th {
   vertical-align: middle !important;
@@ -53,6 +55,7 @@ table {
 .table>thead>tr>th:nth-child(1) {
   text-align: left!important;
 }
+
 
 tbody tr:hover {
   background-color: #ffffff;
@@ -64,10 +67,12 @@ tbody>tr>td {
 }
 
   th {
-    background: #717274;
-    //font-size: 1.25rem;
-    color: white;
-    font-weight: bold;
+    background: #ffffff;
+    //font-size: 1.4rem;
+    border-top: 1px solid #272729!important;
+    border-bottom: 1px solid #272729!important;
+    color: #272729;
+    font-weight: normal;
     cursor: s-resize;
     background-repeat: no-repeat;
     background-position: 3% center;
@@ -97,13 +102,7 @@ tbody>tr>td {
     //  border: 1px solid #ccc;
     //}
 
-    td {
-      /* Behave  like a "row" */
-      border: none;
-      border-left: 1px solid #8e8f91 !important;
-      position: relative;
-      padding-left: 50%;
-    }
+
 
 
 //
@@ -272,7 +271,7 @@ input#myInput {
 }
 
 .no-data {
-  font-size: 1.2rem;
+  font-size: 1.0rem;
 }
 
 .tolink{
