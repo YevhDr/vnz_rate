@@ -21,7 +21,8 @@ d3.csv(file, function (error, data) {
         d.to = formatValue(d.to);
         d.from = +d.from;
         d.to = +d.to;
-        d.amountOfStudents = +d.amountOfStudents
+        d.amountOfStudents = +d.amountOfStudents;
+        d.scopus_per_student = +d.scopus_per_student
 
     });
 
@@ -36,7 +37,7 @@ d3.csv(file, function (error, data) {
 
     // Add the table header content.
     tableHead.append('tr').selectAll('th')
-        .data(["Назва ", "Середній бал ЗНО ", "Всього заяв ", "Заяв на 1 місце ", "Заяв на 1 місце (бюджет) ", "Вартість контракту* ", "К-ть публікацій (Scopus-2017) ", "К-ть цитувань (Scopus-2017) ", "К-ть студентів "]).enter()
+        .data(["Назва ", "Середній бал ЗНО ", "Всього заяв ", "Заяв на 1 місце ", "Заяв на 1 місце (бюджет) ", "Вартість контракту* ", "К-ть публікацій (Scopus-2017) ", "К-ть цитувань (Scopus-2017) ", "Вступило баклаврів "]).enter()
         .append('th')
         .text(function (d) {
             return d;
@@ -169,6 +170,11 @@ d3.csv(file, function (error, data) {
     rows.append('td').text(function (d) {
         return d.amountOfStudents;
     });
+
+    // rows.append('td').text(function (d) {
+    //     return d.scopus_per_student;
+    // });
+
 
 
     // rows.append('td').text(function (d) {

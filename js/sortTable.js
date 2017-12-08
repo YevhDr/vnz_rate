@@ -522,7 +522,7 @@ var sort = function (stat) {
     }
 
     // ----------------------- OSVITA-UA --------------------------
-    if (stat == "К-ть студентів " && $("thead tr th:nth-child(9)").hasClass('active-h') ) {
+    if (stat == "Вступило баклаврів " && $("thead tr th:nth-child(9)").hasClass('active-h') ) {
         //--- delete ClassNames
         d3.select(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -551,7 +551,7 @@ var sort = function (stat) {
         $("li#previous-page").remove();
         paginationList(50);
 
-    } else if (stat == "К-ть студентів ") {
+    } else if (stat == "Вступило баклаврів ") {
         //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
