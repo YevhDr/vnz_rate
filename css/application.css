@@ -311,7 +311,7 @@ Generic Styling, for Desktops/Laptops
 */
 table {
   width: 100%;
-  background-color: #f3f3f3;
+  background-color: #ffffff;
   border-collapse: collapse; }
 
 thead > tr > th {
@@ -325,13 +325,13 @@ thead > tr > th {
   text-align: left !important; }
 
 tbody tr:hover {
-  background-color: #ffffff; }
+  background-color: #fbfbfb; }
 
 tbody > tr > td {
   vertical-align: middle !important; }
 
 th {
-  background: #ffffff;
+  background: rgba(243, 243, 243, 0.5);
   border-top: 1px solid #272729 !important;
   border-bottom: 1px solid #272729 !important;
   color: #272729;
@@ -389,7 +389,7 @@ div.pager span.active {
 
 /*---------------- Bar charts ----------------- */
 .bar:hover {
-  fill: #717274; }
+  fill: #db840b; }
 
 .axis {
   font: 10px sans-serif; }
@@ -441,7 +441,7 @@ input#myInput {
   padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 20px;
-  color: rgba(255, 255, 255, 0.9) !important; }
+  color: #717274 !important; }
 
 .red {
   color: #cc523e;
