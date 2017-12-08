@@ -120,9 +120,9 @@ d3.csv(file, function (error, data) {
         .attr("class", function (d){
 
             if (d.price >= 12714) {
-                return "blue"
-            } else if  (d.price < 12714 && d.price > 1) {
                 return "red"
+            } else if  (d.price < 12714 && d.price > 1) {
+                return "blue"
             } else {
                 return "no-data"
             }
