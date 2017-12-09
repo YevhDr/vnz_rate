@@ -136,44 +136,42 @@
     <div class="row sorting">
 
 
-        <div >
-            <div class="input-group" style="margin-top: 50px; text-align: left!important;"><span>Пошук за ВНЗ  </span>
+        <div class="col-md-4">
+            <div class="input-group" style=text-align: left!important;">
+                <span>Пошук за ВНЗ  </span>
                 <input type="text" id="input"
                        placeholder="напр. Шевченка">
             </div>
         </div>
 
+        <div class="col-md-offset-4 col-md-4">
+            <div class="input-group" style="text-align: left"><span>Пошук за областю </span>
+                <input type="text" id="myInput"
+                       placeholder="напр. Харківська...">
+            </div>
+        </div>
+    </div>
 
-        <div >
-
+    <div class="row sorting">
+        <div class="col-md-4">
             <p>
             <div class="input-group">Середній бал ЗНО</div>
-            <div id="slider-range" style="margin-top:20px; margin-bottom: 10px;"></div>
+            <div id="slider-range" style="margin-top:20px; margin-bottom: 10px; max-width: 80%"></div>
             <input type="text" id="amount" style="border:0; text-align: center;">
             </p>
 
 
-
-
         </div>
 
-        <div >
+        <div class="col-md-offset-4 col-md-4">
 
             <p>
             <div class="input-group">Вартість контракту, грн</div>
-            <div id="slider-range2" style="margin-top:20px; margin-bottom: 10px;"></div>
+            <div id="slider-range2" style="margin-top:20px; margin-bottom: 10px; max-width: 80%"></div>
             <input type="text" id="amount2" style="border:0; text-align: center;">
             </p>
 
 
-
-
-        </div>
-        <div >
-            <div class="input-group" style="margin-top: 50px; text-align: left"><span>Пошук за областю </span>
-                <input type="text" id="myInput"
-                       placeholder="напр. Харківська...">
-            </div>
         </div>
 
 
@@ -185,7 +183,7 @@
         <div class="col-md-offset-4 col-md-4">
 
             <nav style="text-align: center; font-size: 0.8rem; color:grey;" aria-label="page-navigation">
-                <ul class="pagination" style="margin-top: 50px;">
+                <ul class="pagination" >
                 </ul>
             </nav>
         </div>
@@ -197,6 +195,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <p style="text-align: right; font-size: 1.5rem;">Наведіть мишею на назву колонки, аби побачити деталі.
+                Клікніть на назву колонки, аби відсортувати дані.</p>
 
             <table id="table" style="width: 100%;"></table>
         </div>

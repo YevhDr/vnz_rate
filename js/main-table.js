@@ -51,16 +51,45 @@ d3.csv(file, function (error, data) {
         .append("i")
         .attr('class', 'fa fa-sort').style("font-size", "0.8em")
     ;
-    //
-    // d3.select("thead tr th:nth-child(3)")
-    //     .append("i")
-    //     .attr('class', 'fa fa-arrows-v')
-    // ;
-    //
-    // d3.select("thead tr th:nth-child(6)")
-    //     .append("i")
-    //     .attr('class', 'fa fa-arrows-v')
-    // ;
+    d3.select("thead tr th:nth-child(1)")
+        .append("span")
+        .attr("class", "tooltiptext")
+        .text("ВНЗ, що мають в 2017 р. хоча б одного зарахованого на бакалаврат");
+
+    d3.select("thead tr th:nth-child(2)")
+        .append("span")
+        .attr("class", "tooltiptext")
+        .text("Блакитний колір графіка означає, що середній бал ЗНО вступників цього ВНЗ є вищим за середній по країні (138.9), червоний - що нижче. Врховані результати вступників, що мали 2 або 3 сертифіката ЗНО, тобто вступали за результатами ЗНО.");
+
+    d3.select("thead tr th:nth-child(3)")
+        .append("span")
+        .attr("class", "tooltiptext")
+        .text("Червоний колір означає, що ціна навчання за рік є вищою за середню по країні (12 790 грн). Вартість конракту у ВНЗ вирахована на основі середньої вартості по ТОП-10 найбільш популярних спеціальностей 2017 р.: економіка, право, філологія, середня освіта, компʼютерні науки, інженерія програмного забезпечення, менеджмент, медицина, туризм, психологія. В тих ВНЗ, де не навчають жодній з цих спеціальностей, взято середню вартість по наявним. Зірочкою відмічені ВНЗ, де вартість взята за 2016 або 2015 рік.");
+
+    d3.select("thead tr th:nth-child(4)")
+        .append("span")
+        .attr("class", "tooltiptext")
+        .text("Загальна кількість заяв за даними бази vstup.info");
+
+    d3.select("thead tr th:nth-child(5)")
+        .append("span")
+        .attr("class", "tooltiptext")
+        .text("Загальна кількість заяв по ВНЗ до кількості зарахованих");
+
+    d3.select("thead tr th:nth-child(6)")
+        .append("span")
+        .attr("class", "tooltiptext")
+        .text("Загальна кількість заяв по ВНЗ до кількості зарахованих на бюджет. Не є показником попиту на навчання саме в цьому ВНЗ, адже до слабих ВНЗ часто подають заяву як запасну, а вступають потім до більш сильних. Тож що слабкішим є ВНЗ, то більшою може бути різниця між кількістю поданими заявами і кількістю зарахованих абітурієнтів");
+
+    d3.select("thead tr th:nth-child(7)")
+        .append("span")
+        .attr("class", "tooltiptext")
+        .html("Кількість публікацій в Scopus за останній рік в перерахунку на 1000 вступників-бакалаврів і магістрів. Дані по публікаціям в Scopus Рейтинг університетів за показниками Scopus 2017 року від OSVITA.UA. Дані по вступникам 2017 р. - vstup.info).");
+
+    d3.select("thead tr th:nth-child(8)")
+        .append("span")
+        .attr("class", "tooltiptext")
+        .text("Кількість цитувань на 1 публікацію (Scopus) за даними 2017 р. (джерело OSVITA.UA).");
 
 
 // Add the table body rows.
@@ -69,6 +98,7 @@ d3.csv(file, function (error, data) {
         .enter()
         .append('tr')
         .attr("class", "sh")
+
 
         ;
 
@@ -438,32 +468,7 @@ d3.csv(file, function (error, data) {
 }); <!----end of table ----->
 
 
-/* -------------- SEARCH 1------------------ */
-
-// function myFunction() {
-//     // Declare variables
-//     var input, filter, table, tr, td, i;
-//     input = document.getElementById("input");
-//     filter = input.value.toUpperCase();
-//     table = document.getElementById("table");
-//     tr = table.getElementsByTagName("tr");
-//
-//     // Loop through all table rows, and hide those who don't match the search query
-//     for (i = 0; i < tr.length; i++) {
-//         td = tr[i].getElementsByTagName("td")[0];
-//         if (td) {
-//             if (td
-//                     .innerHTML
-//                     .toUpperCase()
-//                     .indexOf(filter) > -1) {
-//                 tr[i].style.display = "";
-//             } else {
-//                 tr[i].style.display = "none";
-//             }
-//         }
-//     }
-// }
-//
+/* --------------add hover to thead ------------------ */
 
 
 
