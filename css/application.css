@@ -378,7 +378,6 @@ and also iPads specifically.
   table, thead, tbody, th, td, tr {
     display: block; } }
 @media (min-width: 1024px) {
-  #table td:nth-child(2),
   #table td:nth-child(3),
   #table td:nth-child(4),
   #table td:nth-child(5),
@@ -387,6 +386,10 @@ and also iPads specifically.
   #table td:nth-child(8),
   #table td:nth-child(9) {
     width: 10%; }
+
+  #table td:nth-child(2) {
+    width: 20% !important;
+    text-align: center !important; }
 
   #table td:nth-child(1) {
     width: 30% !important; }
@@ -408,6 +411,8 @@ and also iPads specifically.
   border: 1px solid rgba(243, 243, 243, 0.5);
   background-color: #eee;
   text-align: center;
+  vertical-align: text-top;
+  top: auto;
   padding: 3px;
   color: #717274; }
   @media (max-width: 1440px), (max-width: 2570px), (max-width: 1285px), (max-width: 1024px) {
@@ -497,6 +502,9 @@ input#myInput {
   padding-right: 20px;
   margin-top: 10px;
   color: #717274 !important; }
+
+.active-h {
+  font-weight: bold; }
 
 .red {
   color: #ED1C24;

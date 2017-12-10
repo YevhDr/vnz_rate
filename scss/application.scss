@@ -143,7 +143,7 @@ tbody>tr>td {
 
 @media (min-width: 1024px) {
 
-#table td:nth-child(2),
+
 #table td:nth-child(3),
 #table td:nth-child(4),
 #table td:nth-child(5),
@@ -155,6 +155,11 @@ tbody>tr>td {
   width: 10%;
 }
 
+#table td:nth-child(2) {
+    width: 20% !important;
+    text-align: center!important;
+
+  }
 
   #table td:nth-child(1) {
     width: 30% !important;
@@ -190,8 +195,11 @@ tbody>tr>td {
   border: 1px solid $grey;
   background-color:#eee;
   text-align: center;
-  padding:3px;
+  vertical-align: text-top;
+  top:auto;
+  padding: 3px;
   color:$dark;
+
 
   @media #{$brk-large}, #{$brk-xlarge}, #{$brk-medium}, #{$brk-narrow}
   {
@@ -307,6 +315,10 @@ input#myInput {
   margin-top: 10px;
   color: rgb(113, 114, 116) !important;
 
+}
+
+.active-h {
+  font-weight: bold;
 }
 
 

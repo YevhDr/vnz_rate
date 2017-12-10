@@ -21,6 +21,7 @@ d3.csv(file, function (error, data) {
         d.to = formatValue(d.to);
         d.from = +d.from;
         d.to = +d.to;
+        d.AmountOfBacalavr = +d.AmountOfBacalavr;
         d.scopus_per_student = formatValue(d.scopus_per_student);
         d.scopus_per_student = +d.scopus_per_student;
         d.QtoP = +d.QtoP
@@ -38,7 +39,7 @@ d3.csv(file, function (error, data) {
 
     // Add the table header content.
     tableHead.append('tr').selectAll('th')
-        .data(["Назва ", "Середній бал ЗНО ", "Вартість контракту, грн* ", "Всього заяв ", "Заяв на 1 місце ", "Заяв на 1 місце (бюджет) ",  "Наука (публікації, Scopus) ", "Наука (цитування, Scopus) "]).enter()
+        .data(["Назва ", "Середній бал ЗНО ", "Вартість контракту, грн* ", "Заяв на місце ", "Зараховано ",  "Наука (публікації, Scopus) ", "Наука (цитування, Scopus) "]).enter()
         .append('th')
         .text(function (d) {
             return d;
@@ -54,12 +55,13 @@ d3.csv(file, function (error, data) {
     d3.select("thead tr th:nth-child(1)")
         .append("span")
         .attr("class", "tooltiptext")
-        .text("ВНЗ, що мають в 2017 р. хоча б одного зарахованого на бакалаврат");
+        .text("ВНЗ, що мають у 2017 р. хоча б одного зарахованого на бакалаврат");
 
     d3.select("thead tr th:nth-child(2)")
+        .attr("class", "active-h")
         .append("span")
         .attr("class", "tooltiptext")
-        .text("Блакитний колір графіка означає, що середній бал ЗНО вступників цього ВНЗ є вищим за середній по країні (138.9), червоний - що нижче. Врховані результати вступників, що мали 2 або 3 сертифіката ЗНО, тобто вступали за результатами ЗНО.");
+        .text("Блакитний колір графіка означає, що середній бал ЗНО вступників цього ВНЗ є вищим за середній по країні (138.9), червоний - що нижче. Враховані результати вступників, що мали 2 або 3 сертифіката ЗНО, тобто вступали за результатами ЗНО.");
 
     d3.select("thead tr th:nth-child(3)")
         .append("span")
@@ -69,24 +71,24 @@ d3.csv(file, function (error, data) {
     d3.select("thead tr th:nth-child(4)")
         .append("span")
         .attr("class", "tooltiptext")
-        .text("Загальна кількість заяв за даними бази vstup.info");
+        .text("Загальна кількість заяв по ВНЗ до кількості зарахованих. Не є показником попиту на навчання саме в цьому ВНЗ, адже до слабих ВНЗ часто подають заяву провсяк випадок, а вступають потім до більш сильних. Тож що слабкішим є ВНЗ, то більшою може бути різниця між кількістю поданих заяв і кількістю зарахованих");
 
     d3.select("thead tr th:nth-child(5)")
         .append("span")
         .attr("class", "tooltiptext")
-        .text("Загальна кількість заяв по ВНЗ до кількості зарахованих");
+        .text("Кількість студентів, що зараховані на бакалаврат");
+
+    // d3.select("thead tr th:nth-child(6)")
+    //     .append("span")
+    //     .attr("class", "tooltiptext")
+    //     .text("Загальна кількість заяв по ВНЗ до кількості зарахованих. Не є показником попиту на навчання саме в цьому ВНЗ, адже до слабих ВНЗ часто подають заяву провсяк випадок, а вступають потім до більш сильних. Тож що слабкішим є ВНЗ, то більшою може бути різниця між кількістю поданих заявами і кількістю зарахованих абітурієнтів");
 
     d3.select("thead tr th:nth-child(6)")
         .append("span")
         .attr("class", "tooltiptext")
-        .text("Загальна кількість заяв по ВНЗ до кількості зарахованих на бюджет. Не є показником попиту на навчання саме в цьому ВНЗ, адже до слабих ВНЗ часто подають заяву як запасну, а вступають потім до більш сильних. Тож що слабкішим є ВНЗ, то більшою може бути різниця між кількістю поданими заявами і кількістю зарахованих абітурієнтів");
+        .html("Кількість публікацій в Scopus за останній рік в перерахунку на 1000 вступників (бакалаврів і магістрів). Дані по публікаціям в Scopus Рейтинг університетів за показниками Scopus 2017 року від OSVITA.UA. Дані по вступникам 2017 р. - vstup.info).");
 
     d3.select("thead tr th:nth-child(7)")
-        .append("span")
-        .attr("class", "tooltiptext")
-        .html("Кількість публікацій в Scopus за останній рік в перерахунку на 1000 вступників-бакалаврів і магістрів. Дані по публікаціям в Scopus Рейтинг університетів за показниками Scopus 2017 року від OSVITA.UA. Дані по вступникам 2017 р. - vstup.info).");
-
-    d3.select("thead tr th:nth-child(8)")
         .append("span")
         .attr("class", "tooltiptext")
         .text("Кількість цитувань на 1 публікацію (Scopus) за даними 2017 р. (джерело OSVITA.UA).");
@@ -154,18 +156,25 @@ d3.csv(file, function (error, data) {
 
         });
 
-    rows.append('td').text(function (d) {
-        return d.total_apps;
-    });
+    // rows.append('td').text(function (d) {
+    //     return d.total_apps;
+    // });
+
+
     rows.append('td').text(function (d) {
         return d.total_per_place;
     });
 
     rows.append('td').text(function (d) {
-        return d.budg_per_place;
+        return d.AmountOfBacalavr;
     });
 
 
+    // rows.append('td').text(function (d) {
+    //     return d.budg_per_place;
+    // });
+
+    //
 
     rows.append('td').text(function (d) {
         if (d.scopus_per_student > 0) {
