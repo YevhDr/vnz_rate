@@ -200,7 +200,7 @@ d3.csv(file, function (error, data) {
         } else if (d.QtoP === -1) {
             return "у 2017 р. не було публікацій"
         } else if (d.QtoP === 0) {
-            return "немає даних"
+            return "дані відсутні"
         }
     })
         .attr("class", function (d){
