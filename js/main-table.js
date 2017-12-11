@@ -55,7 +55,7 @@ d3.csv(file, function (error, data) {
     d3.select("thead tr th:nth-child(1)")
         .append("span")
         .attr("class", "tooltiptext")
-        .text("ВНЗ, що мають у 2017 р. хоча б одного зарахованого на бакалаврат");
+        .text("ВНЗ, що мають у 2017 р. хоча б одного зарахованого на бакалаврат. Тисніть на стрілку поруч із назвою, аби перейти до сайту вишу");
 
     d3.select("thead tr th:nth-child(2)")
         .attr("class", "active-h")
