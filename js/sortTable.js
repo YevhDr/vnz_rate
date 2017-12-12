@@ -25,7 +25,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.univ, b.univ);
@@ -54,7 +54,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.univ, b.univ);
@@ -88,7 +88,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll('tbody tr')
             .sort(function (a, b) {
                 return d3.ascending(a.mean, b.mean);
@@ -122,7 +122,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll('tbody tr')
             .sort(function (a, b) {
                 return d3.descending(a.mean, b.mean);
@@ -154,7 +154,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.price, b.price);
@@ -188,7 +188,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.price, b.price);
@@ -221,7 +221,7 @@ var sort = function (stat) {
     //     $("li#next-page").remove();
     //     $("li#previous-page").remove();
     //     $("tbody tr").show();
-    //     paginationList(398);
+    //     paginationList(407);
     //     d3.selectAll("table tbody tr")
     //         .sort(function (a, b) {
     //             return d3.ascending(a.total_apps, b.total_apps);
@@ -253,7 +253,7 @@ var sort = function (stat) {
     //     $("li#next-page").remove();
     //     $("li#previous-page").remove();
     //     $("tbody tr").show();
-    //     paginationList(398);
+    //     paginationList(407);
     //     d3.selectAll("table tbody tr")
     //         .sort(function (a, b) {
     //             return d3.descending(a.total_apps, b.total_apps);
@@ -288,7 +288,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.total_per_place, b.total_per_place);
@@ -320,7 +320,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.total_per_place, b.total_per_place);
@@ -353,7 +353,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.AmountOfBacalavr, b.AmountOfBacalavr);
@@ -384,7 +384,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.AmountOfBacalavr, b.AmountOfBacalavr);
@@ -415,7 +415,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.scopus_per_student, b.scopus_per_student);
@@ -447,7 +447,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.scopus_per_student, b.scopus_per_student);
@@ -479,7 +479,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.ascending(a.QtoP, b.QtoP);
@@ -510,7 +510,7 @@ var sort = function (stat) {
         $("li#next-page").remove();
         $("li#previous-page").remove();
         $("tbody tr").show();
-        paginationList(398);
+        paginationList(407);
         d3.selectAll("table tbody tr")
             .sort(function (a, b) {
                 return d3.descending(a.QtoP, b.QtoP);
@@ -540,7 +540,7 @@ var sort = function (stat) {
     //     $("li#next-page").remove();
     //     $("li#previous-page").remove();
     //     $("tbody tr").show();
-    //     paginationList(398);
+    //     paginationList(407);
     //     d3.selectAll("table tbody tr")
     //         .sort(function (a, b) {
     //             return d3.ascending(a.amountOfStudents, b.amountOfStudents);
@@ -571,7 +571,7 @@ var sort = function (stat) {
     //     $("li#next-page").remove();
     //     $("li#previous-page").remove();
     //     $("tbody tr").show();
-    //     paginationList(398);
+    //     paginationList(407);
     //     d3.selectAll("table tbody tr")
     //         .sort(function (a, b) {
     //             return d3.descending(a.amountOfStudents, b.amountOfStudents);

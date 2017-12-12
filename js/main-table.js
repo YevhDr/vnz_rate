@@ -1,18 +1,17 @@
-var file = "data/data_new.csv";
+var file = "data/data_med.csv";
 
 d3.csv(file, function (error, data) {
     if (error) throw error;
 
     var formatValue = d3.format(".1f");
+    var formatValue0 = d3.format(".0f");
 
 
     data.forEach(function (d) {
+        d.mean = formatValue(d.mean);
         d.mean = +d.mean;
-        d.from = +d.from;
-        d.to = +d.to;
-        d.total_apps = +d.total_apps;
+        d.total_per_place = formatValue0(d.total_per_place);
         d.total_per_place = +d.total_per_place;
-        d.budg_per_place = +d.budg_per_place;
         d.price = +d.price;
         d.scopus_public = +d.scopus_public;
         d.scopus_qoutes = +d.scopus_qoutes;
@@ -24,6 +23,7 @@ d3.csv(file, function (error, data) {
         d.AmountOfBacalavr = +d.AmountOfBacalavr;
         d.scopus_per_student = formatValue(d.scopus_per_student);
         d.scopus_per_student = +d.scopus_per_student;
+        d.QtoP = formatValue(d.QtoP);
         d.QtoP = +d.QtoP
 
     });
@@ -76,7 +76,7 @@ d3.csv(file, function (error, data) {
     d3.select("thead tr th:nth-child(5)")
         .append("span")
         .attr("class", "tooltiptext")
-        .text("Кількість студентів, що зараховані на бакалаврат");
+        .text("Кількість студентів, що зараховані на бакалаврат. Для медичних ВНЗ на бакалаврат і до магістратури");
 
     // d3.select("thead tr th:nth-child(6)")
     //     .append("span")
@@ -185,7 +185,7 @@ d3.csv(file, function (error, data) {
     })
         .attr("class", function (d){
 
-            if (d.scopus_per_student === 0) {
+            if (d.scopus_per_student <= 0) {
                 return "no-data"
             } else {
                 return false
@@ -198,17 +198,16 @@ d3.csv(file, function (error, data) {
         if (d.QtoP > 0) {
             return d.QtoP;
         } else if (d.QtoP === -1) {
-            return "у 2017 р. не було публікацій"
+            return "у 2017 р. не було публікацій";
         } else if (d.QtoP === 0) {
-            return "дані відсутні"
+            return "дані відсутні";
         }
     })
         .attr("class", function (d){
-
-            if (d.scopus_qoutes === 0 || d.QtoP === -1) {
-                return "no-data"
+            if (d.QtoP <= 0) {
+                return "no-data";
             } else {
-                return false
+                return false;
             }
 
         });
