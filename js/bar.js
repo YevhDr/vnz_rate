@@ -8,18 +8,34 @@ var drawBar = function() {
 
         selection.each(function (data) {
 
-            var div = d3.select(this);
-            var svg = div.selectAll('svg')
-                .data([data])
-                .enter()
-                .append('svg');
+            var svg = d3.select(this).append("svg")
+                .attr("width", 100)
+                .attr("height", 60);
 
-            svg.attr('width', width)
-                .attr('height', height - margin.top)
-                .style("overflow", "visible")
-                // .append("g")
-                // .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-            ;
+
+//append blue gradient
+//             var defs = svg.append("defs");
+//
+//             var gradient = defs.append("linearGradient")
+//                 .attr("id", "blueGradient")
+//                 .attr("x1", "0%")
+//                 .attr("x2", "100%")
+//                 .attr("y1", "0%")
+//                 .attr("y2", "100%");
+//
+//             gradient.append("stop")
+//                 .attr('class', 'start')
+//                 .attr("offset", "0%")
+//                 .attr("stop-color", "#3498DB")
+//                 .attr("stop-opacity", 1);
+//
+//             gradient.append("stop")
+//                 .attr('class', 'end')
+//                 .attr("offset", "100%")
+//                 .attr("stop-color", "#c3e6ee")
+//                 .attr("stop-opacity", 1);
+
+
 
 
             var x = d3.scale.linear().range([0, width]).domain([0, 100]);
@@ -32,33 +48,134 @@ var drawBar = function() {
             svg.append("g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + height + ")")
-                // .call(xAxis)
+            // .call(xAxis)
 
             ;
 
-            svg.selectAll("rect")
+
+
+
+            var rects = svg.selectAll(".rect1")
                 .data([data])
                 .enter()
                 .append("rect")
-                .attr("class", "bar")
-                .attr("x", x(data.from)-100)
-                .attr("y", 40)
-                .attr("width", x(data.to - data.from))
-                .attr("height", 10)
-
-
-
-            ;
-
-            svg.append("text")
-                .data(data)
+                .attr('class', 'rect1')
+                .attr("x", 0)
                 .attr("y", 30)
-                .attr("text-anchor", "start")
-                .style("fill", "black")
-                .html(data.mean)
-                .style("font-size", "1em")
-                .style("padding-top", "5px");
+                .attr("height", 12)
+                .attr("width", function() {
+                    if(data.mean > 0) {
+                        if (data.mean >= 138.9) {
+                            return 38.9
+                        }
+                        else if (data.mean < 138.9) {
+                            return x(data.mean)- 100
+                        }
+                    }
+                })
+                .attr("fill", "#ffffff")
+                .attr("stroke", "#E5E5E5")
+                ;
 
+            var rects1 = svg.selectAll(".rect")
+                .data([data])
+                .enter()
+                .append("rect")
+                .attr('class', 'rect')
+                .attr("x", function() {
+                        if (data.mean > 0) {
+                            if (data.mean >= 138.9) {
+                                return 38.9
+                            }
+                            else if (data.mean < 138.9) {
+                                return x(data.mean) - 100
+                            }
+                        }
+                    })
+                .attr("y", 30)
+
+                .attr("height", 12)
+                .attr("width", function() {
+                    if (data.mean > 0) {
+                        if (data.mean >= 138.9) {
+                            return x(data.mean) - 100 - 38.9;
+                        }
+                        else if (data.mean < 138.9) {
+                            return 138.9 - x(data.mean);
+                        }
+                    }
+                })
+                .attr("fill", function() {
+                    if (data.mean > 0) {
+                        if (data.mean >= 138.9) {
+                            return '#3498DB';
+                        }
+                        else if (data.mean < 138.9) {
+                            return '#cc3337';
+                        }
+                    }
+
+                })
+                    .attr("stroke", "#e5e5e5")
+                ;
+
+
+
+            var rects2 = svg.selectAll(".rect2")
+                .data([data])
+                .enter()
+                .append("rect")
+                .attr('class', 'rect2')
+                .attr("x", function() {
+                    if (data.mean > 0) {
+                        if (data.mean >= 138.9) {
+                            return x(data.mean)-100
+                        }
+                        else if (data.mean < 138.9) {
+                            return x(38.9)
+                        }
+                    }
+                })
+                .attr("y", 30)
+
+                .attr("height", 12)
+                .attr("width", function() {
+                    if (data.mean > 0) {
+                        if (data.mean >= 138.9) {
+                            return 200 - x(data.mean);
+                        }
+                        else if (data.mean < 138.9) {
+                            return 200 - 138.9;
+                        }
+                    }
+                })
+
+
+                .attr("fill", "#ffffff")
+                .attr("stroke", "#E5E5E5");
+
+
+
+
+
+            if(data.mean > 100) {
+                svg.append("line")
+                    .attr("x1", data.mean - 100)
+                    .attr("x2", data.mean - 100)
+                    .attr("y1", 42)
+                    .attr("y2", 30)
+                    .attr("stroke", "black");
+            }
+
+            if(data.mean > 100) {
+                svg.append("text")
+                    .text(data.mean)
+                    .attr("y", 23)
+                    .attr("x", data.mean - 110)
+                    .style("fill", "grey")
+                    .style("font-size", "1.2rem")
+                ;
+            }
 
         });
     }

@@ -23,15 +23,15 @@ body {
   //background-image: url(../img/main.svg);
   background-size: cover;
 
-  @media #{$brk-large}, #{$brk-xlarge}, #{$brk-medium}, #{$brk-narrow}
-  {
-    height: 50vh;
-
-  }
-
-  @media #{$brk-spnarrow}, #{$brk-iphone} {
-    height: 25vh;
-  }
+  //@media #{$brk-large}, #{$brk-xlarge}, #{$brk-medium}, #{$brk-narrow}
+  //{
+  //  height: 50vh;
+  //
+  //}
+  //
+  //@media #{$brk-spnarrow}, #{$brk-iphone} {
+  //  height: 25vh;
+  //}
 
 }
 
@@ -52,6 +52,10 @@ h1 {
 
 }
 
+h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
 
 .sorting {
   //display: flex;
@@ -61,8 +65,8 @@ h1 {
 }
 
 p {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
 
 }
 
@@ -392,7 +396,13 @@ button:hover {
 
 
 
-
+.rect {
+  background: #d0e4f7; /* Old browsers */
+  background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 17%, #0a77d5 46%, #539fe1 91%, #87bcea 100%)!important; /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #d0e4f7 0%,#73b1e7 17%,#0a77d5 46%,#539fe1 91%,#87bcea 100%)!important; /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #d0e4f7 0%,#73b1e7 17%,#0a77d5 46%,#539fe1 91%,#87bcea 100%)!important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 );
+}
 
 
 

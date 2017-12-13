@@ -298,12 +298,6 @@ body {
 
 .jumbotron {
   background-size: cover; }
-  @media (max-width: 1440px), (max-width: 2570px), (max-width: 1285px), (max-width: 1024px) {
-    .jumbotron {
-      height: 50vh; } }
-  @media (max-width: 767px), (max-width: 400px) {
-    .jumbotron {
-      height: 25vh; } }
 
 h1 {
   text-align: center;
@@ -315,14 +309,18 @@ h1 {
     h1 {
       font-size: 4rem !important; } }
 
+h2 {
+  font-size: 2.2rem;
+  font-weight: bold; }
+
 .sorting {
   flex-wrap: wrap;
   justify-content: space-between;
   vertical-align: text-top; }
 
 p {
-  font-size: 1rem;
-  line-height: 1.5rem; }
+  font-size: 1.5rem;
+  line-height: 2rem; }
 
 #page-wrap {
   margin: 50px; }
@@ -556,5 +554,16 @@ button:hover {
 
 .grow:hover {
   transform: scale(1.2); }
+
+.rect {
+  background: #d0e4f7;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 17%, #0a77d5 46%, #539fe1 91%, #87bcea 100%) !important;
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #d0e4f7 0%, #73b1e7 17%, #0a77d5 46%, #539fe1 91%, #87bcea 100%) !important;
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #d0e4f7 0%, #73b1e7 17%, #0a77d5 46%, #539fe1 91%, #87bcea 100%) !important;
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); }
 
 /*# sourceMappingURL=application.css.map */
