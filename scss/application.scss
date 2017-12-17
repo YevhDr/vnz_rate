@@ -42,12 +42,14 @@ h1 {
   color: $blue !important;
   @media #{$brk-large}, #{$brk-xlarge}, #{$brk-medium}, #{$brk-narrow}
   {
-    font-size: 8rem!important;
+    font-size: 4.5rem!important;
+    line-height: 5rem!important;
 
   }
 
   @media #{$brk-spnarrow}, #{$brk-iphone} {
-    font-size: 4rem!important;
+    font-size: 3rem!important;
+    line-height: 4rem!important;
   }
 
 }

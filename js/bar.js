@@ -160,8 +160,8 @@ var drawBar = function() {
 
             if(data.mean > 100) {
                 svg.append("line")
-                    .attr("x1", data.mean - 100)
-                    .attr("x2", data.mean - 100)
+                    .attr("x1", 38.9)
+                    .attr("x2", 38.9)
                     .attr("y1", 42)
                     .attr("y2", 30)
                     .attr("stroke", "black");
