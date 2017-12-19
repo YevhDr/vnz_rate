@@ -1,4 +1,4 @@
-var file = "data/data_med.csv";
+var file = "data/data_med_ranking.csv";
 
 d3.csv(file, function (error, data) {
     if (error) throw error;
@@ -24,7 +24,10 @@ d3.csv(file, function (error, data) {
         d.scopus_per_student = formatValue(d.scopus_per_student);
         d.scopus_per_student = +d.scopus_per_student;
         d.QtoP = formatValue(d.QtoP);
-        d.QtoP = +d.QtoP
+        d.QtoP = +d.QtoP;
+        d.ranking_2017 = +d.ranking_2017;
+        d.ranking_2011 = +d.ranking_2011;
+        d.rank4 = +d.rank4
 
     });
 
@@ -39,7 +42,8 @@ d3.csv(file, function (error, data) {
 
     // Add the table header content.
     tableHead.append('tr').selectAll('th')
-        .data(["Назва ", "Середній бал ЗНО ", "Вартість контракту, грн* ", "Заяв на місце ", "Зараховано ",  "Наука (публікації, Scopus) ", "Наука (цитування, Scopus) "]).enter()
+        .data(["№", "Назва ", "Середній бал ЗНО ", "Різниця", "Вартість контракту, грн* ", "Заяв на місце ", "Зараховано ",  "Наука (публікації, Scopus) ", "Наука (цитування, Scopus) "])
+        .enter()
         .append('th')
         .text(function (d) {
             return d;
@@ -52,28 +56,28 @@ d3.csv(file, function (error, data) {
         .append("i")
         .attr('class', 'fa fa-sort').style("font-size", "0.8em")
     ;
-    d3.select("thead tr th:nth-child(1)")
+    d3.select("thead tr th:nth-child(2)")
         .append("span")
         .attr("class", "tooltiptext")
         .text("ВНЗ, що мають у 2017 р. хоча б одного зарахованого на бакалаврат. Тисніть на стрілку поруч із назвою, аби перейти до сайту вишу");
 
-    d3.select("thead tr th:nth-child(2)")
+    d3.select("thead tr th:nth-child(3)")
         .attr("class", "active-h")
         .append("span")
         .attr("class", "tooltiptext")
         .html('<span style="color: #3498db"><b>Блакитний</b></span> колір графіка означає, що середній бал ЗНО вступників цього ВНЗ є вищим за середній по країні (138.9), <span style="color: #ED1C24"><b>червоний</b></span> - що нижче. Довжина кольорової частини графіку ілюструє відхилення від загального середнього. Враховані результати вступників, що мали 2 або 3 сертифіката ЗНО, тобто вступали за результатами ЗНО.');
 
-    d3.select("thead tr th:nth-child(3)")
+    d3.select("thead tr th:nth-child(5)")
         .append("span")
         .attr("class", "tooltiptext")
         .html('<span style="color: #ED1C24"><b>Червоний</b></span> колір означає, що ціна навчання за рік є вищою за середню по країні (12 790 грн). Вартість конракту у ВНЗ вирахована на основі середньої вартості по ТОП-10 найбільш популярних спеціальностей 2017 р.: економіка, право, філологія, середня освіта, компʼютерні науки, інженерія програмного забезпечення, менеджмент, медицина, туризм, психологія. В тих ВНЗ, де не навчають жодній з цих спеціальностей, взято середню вартість по наявним. Зірочкою відмічені ВНЗ, де вартість взята за 2016 або 2015 рік.');
 
-    d3.select("thead tr th:nth-child(4)")
+    d3.select("thead tr th:nth-child(6)")
         .append("span")
         .attr("class", "tooltiptext")
         .text("Загальна кількість заяв по ВНЗ до кількості зарахованих. Не є показником попиту на навчання саме в цьому ВНЗ, адже до слабих ВНЗ часто подають заяву провсяк випадок, а вступають потім до більш сильних. Тож що слабкішим є ВНЗ, то більшою може бути різниця між кількістю поданих заяв і кількістю зарахованих");
 
-    d3.select("thead tr th:nth-child(5)")
+    d3.select("thead tr th:nth-child(7)")
         .append("span")
         .attr("class", "tooltiptext")
         .text("Кількість студентів, що зараховані на бакалаврат. Для медичних ВНЗ на бакалаврат і до магістратури");
@@ -83,12 +87,12 @@ d3.csv(file, function (error, data) {
     //     .attr("class", "tooltiptext")
     //     .text("Загальна кількість заяв по ВНЗ до кількості зарахованих. Не є показником попиту на навчання саме в цьому ВНЗ, адже до слабих ВНЗ часто подають заяву провсяк випадок, а вступають потім до більш сильних. Тож що слабкішим є ВНЗ, то більшою може бути різниця між кількістю поданих заявами і кількістю зарахованих абітурієнтів");
 
-    d3.select("thead tr th:nth-child(6)")
+    d3.select("thead tr th:nth-child(8)")
         .append("span")
         .attr("class", "tooltiptext")
         .html("Кількість публікацій в Scopus за останній рік в перерахунку на 1000 вступників (бакалаврів і магістрів). Дані по публікаціям в Scopus Рейтинг університетів за показниками Scopus 2017 року від OSVITA.UA. Дані по вступникам 2017 р. - vstup.info).");
 
-    d3.select("thead tr th:nth-child(7)")
+    d3.select("thead tr th:nth-child(9)")
         .append("span")
         .attr("class", "tooltiptext")
         .text("Кількість цитувань на 1 публікацію (Scopus) за даними 2017 р. (джерело OSVITA.UA).");
@@ -100,9 +104,12 @@ d3.csv(file, function (error, data) {
         .enter()
         .append('tr')
         .attr("class", "sh")
-
-
         ;
+
+
+    rows.append('td').text(function (d) {
+        return d.ranking_2017;
+    });
 
     rows.append('td')
         .text(function (d) {
@@ -130,6 +137,47 @@ d3.csv(file, function (error, data) {
             return d;
         })
         .call(drawBar());
+
+
+
+    rows.append('td').text(function (d) {
+        if (d.ranking_2011 > 0 && d.ranking_2017 > 0 && (d.ranking_2011 - d.ranking_2017) != 0) {
+            if ((d.ranking_2011 - d.ranking_2017) > 0) {
+                return "+" + (d.ranking_2011 - d.ranking_2017);
+            }
+            else {
+                return d.ranking_2011 - d.ranking_2017;
+            }
+
+        }
+        else if((d.ranking_2011 - d.ranking_2017) === 0){
+            return "теж місце"
+        }
+        else {
+            return "дані відсутні"
+        }
+    })
+        .attr("class", function(d) {
+            if (d.ranking_2011 > 0 && d.ranking_2017 > 0 && (d.ranking_2011 - d.ranking_2017) != 0) {
+                return "class"; }
+            else {
+                return "no-data"}
+})
+        .append('i')
+        .attr("class", function(d){
+            if (d.ranking_2011 > 0 && d.ranking_2017 > 0) {
+                if (d.ranking_2017 > d.ranking_2011) {
+                    return " fa fa-arrow-down"
+                }
+                if (d.ranking_2017 < d.ranking_2011) {
+                    return " fa fa-arrow-up"
+                }
+            }
+            else {
+                return false
+            }
+        });
+
 
 
     rows.append('td')

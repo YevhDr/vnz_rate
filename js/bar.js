@@ -171,9 +171,10 @@ var drawBar = function() {
                 svg.append("text")
                     .text(data.mean)
                     .attr("y", 23)
-                    .attr("x", data.mean - 110)
+                    .attr("x", data.mean - 106)
                     .style("fill", "grey")
-                    .style("font-size", "1.2rem")
+                    .style("font-size", "1.15rem")
+                    .style("overflow", "visible")
                 ;
             }
 
