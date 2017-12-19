@@ -194,9 +194,17 @@
 
         </div>
 
-
+        <input id="button-return" class="hidden-return" type="button" style="margin-top:20px;" value="Очистити фільтри">
     </div>
-</div>
+    </div>
+
+<script>
+
+    d3.select("input#button-return").on("click", function () {
+        window.location.reload()
+    });
+
+</script>
 
 <div class="container">
     <div class="row">

@@ -550,8 +550,6 @@ d3.csv(file, function (error, data) {
 }); <!----end of table ----->
 
 
-/* --------------add hover to thead ------------------ */
-
 
 
 
