@@ -2,6 +2,7 @@ var sort = function (stat) {
 
     var table = document.getElementById("table");
 
+   // var ordrer = $("thead tr th:nth-child(1)").hasClass('active-h');
 
 
     if (stat == "№" && $("thead tr th:nth-child(1)").hasClass('active-h') ) {
@@ -204,7 +205,7 @@ var sort = function (stat) {
 
     //--------------------------------------- Total APPS --------------------------------- //
 
-    if (stat == "Різниця" && $("thead tr th:nth-child(4)").hasClass('active-h') ) {
+    if (stat == "Різниця з 2011 роком " && $("thead tr th:nth-child(4)").hasClass('active-h') ) {
         //--- delete ClassNames
         d3.select(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
@@ -233,7 +234,7 @@ var sort = function (stat) {
         $("li#previous-page").remove();
         paginationList(50);
 
-    } else if(stat == "Різниця") {
+    } else if(stat == "Різниця з 2011 роком ") {
 
         //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);

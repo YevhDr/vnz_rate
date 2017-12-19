@@ -31,10 +31,25 @@ d3.csv(file, function (error, data) {
 
     });
 
-    var sortAscending = true;
-    var titles = d3.keys(data[0]);
+    // var headers = {
+    //     "ranking_2017": "№",
+    //     "univ": "Назва",
+    //     "mean": "Середній бал ЗНО ",
+    //     "rank4": "Різниця",
+    //     "price": "Вартість контракту, грн* ",
+    //     "total_per_place": "Заяв на місце ",
+    //     "AmountOfBacalavr": "Зараховано ",
+    //     "scopus_per_student": "Наука (публікації, Scopus) ",
+    //     "QtoP": "Наука (цитування, Scopus) "
+    // };
+    //
+    // var title_variables = ["ranking_2017", "univ", "mean", "rank4", "price", "total_per_place", "AmountOfBacalavr", "scopus_per_student", "QtoP"];
 
-    var table = d3.select('#table').append('table').attr('class', 'table table-condensed');
+    var sortAscending = true;
+
+    var table = d3.select('#table')
+        .append('table')
+        .attr('class', 'table table-condensed');
 
 // Append the table header and body.
     var tableHead = table.append('thead'),
@@ -42,7 +57,7 @@ d3.csv(file, function (error, data) {
 
     // Add the table header content.
     tableHead.append('tr').selectAll('th')
-        .data(["№", "Назва ", "Середній бал ЗНО ", "Різниця", "Вартість контракту, грн* ", "Заяв на місце ", "Зараховано ",  "Наука (публікації, Scopus) ", "Наука (цитування, Scopus) "])
+        .data(["№", "Назва ", "Середній бал ЗНО ", "Різниця з 2011 роком ", "Вартість контракту, грн* ", "Заяв на місце ", "Зараховано ",  "Наука (публікації, Scopus) ", "Наука (цитування, Scopus) "])
         .enter()
         .append('th')
         .text(function (d) {
@@ -56,10 +71,16 @@ d3.csv(file, function (error, data) {
         .append("i")
         .attr('class', 'fa fa-sort').style("font-size", "0.8em")
     ;
+
+    d3.select("thead tr th:nth-child(1)")
+        .append("span")
+        .attr("class", "tooltiptext")
+        .text("Порядковий номер ВНЗ в рейтингу 2017 року");
+
     d3.select("thead tr th:nth-child(2)")
         .append("span")
         .attr("class", "tooltiptext")
-        .text("ВНЗ, що мають у 2017 р. хоча б одного зарахованого на бакалаврат. Тисніть на стрілку поруч із назвою, аби перейти до сайту вишу");
+        .text("ВНЗ, що мають у 2017 р. хоча б одного зарахованого на бакалаврат. Тисніть на стрілку поруч із назвою, аби перейти до сайту ВНЗ.");
 
     d3.select("thead tr th:nth-child(3)")
         .attr("class", "active-h")
@@ -67,10 +88,15 @@ d3.csv(file, function (error, data) {
         .attr("class", "tooltiptext")
         .html('<span style="color: #3498db"><b>Блакитний</b></span> колір графіка означає, що середній бал ЗНО вступників цього ВНЗ є вищим за середній по країні (138.9), <span style="color: #ED1C24"><b>червоний</b></span> - що нижче. Довжина кольорової частини графіку ілюструє відхилення від загального середнього. Враховані результати вступників, що мали 2 або 3 сертифіката ЗНО, тобто вступали за результатами ЗНО.');
 
+    d3.select("thead tr th:nth-child(4)")
+        .append("span")
+        .attr("class", "tooltiptext")
+        .html('Різниця між позицією ВНЗ в рейтингу-2017 і <a class="dashed" href="texty.org.ua/pg/article/devrand/read/29555" target="_blank">рейтингу-2011</a>. Позначка про відсутність даних означає, що неможливо порівняти позицію через наступні причини: ВНЗ припинив своє існування / був реорганізований / почав роботу  між 2011 р. і 2017 р. або ВНЗ перестав/почав набирати студентів на бакалаврат між 2011 р. і 2017 р.');
+
     d3.select("thead tr th:nth-child(5)")
         .append("span")
         .attr("class", "tooltiptext")
-        .html('<span style="color: #ED1C24"><b>Червоний</b></span> колір означає, що ціна навчання за рік є вищою за середню по країні (12 790 грн). Вартість конракту у ВНЗ вирахована на основі середньої вартості по ТОП-10 найбільш популярних спеціальностей 2017 р.: економіка, право, філологія, середня освіта, компʼютерні науки, інженерія програмного забезпечення, менеджмент, медицина, туризм, психологія. В тих ВНЗ, де не навчають жодній з цих спеціальностей, взято середню вартість по наявним. Зірочкою відмічені ВНЗ, де вартість взята за 2016 або 2015 рік.');
+        .html('<span style="color: #ED1C24"><b>Червоний</b></span> колір означає, що ціна навчання за рік є вищою за середню по країні (12 790 грн). Вартість конракту у ВНЗ вирахована на основі середньої вартості <a class="dashed" href="http://mon.gov.ua/usi-novivni/novini/2017/09/14/top-10-najbilsh-ta-najmensh-populyarnix-speczialnostej-u-2017-roczi/" target="_blank">по ТОП-10 найбільш популярних спеціальностей 2017 р.</a>: економіка, право, філологія, середня освіта, компʼютерні науки, інженерія програмного забезпечення, менеджмент, медицина, туризм, психологія. В тих ВНЗ, де не навчають жодній з цих спеціальностей, взято середню вартість по наявним. Зірочкою відмічені ВНЗ, де вартість взята за 2016 або 2015 рік.');
 
     d3.select("thead tr th:nth-child(6)")
         .append("span")
@@ -90,12 +116,12 @@ d3.csv(file, function (error, data) {
     d3.select("thead tr th:nth-child(8)")
         .append("span")
         .attr("class", "tooltiptext")
-        .html("Кількість публікацій в Scopus за останній рік в перерахунку на 1000 вступників (бакалаврів і магістрів). Дані по публікаціям в Scopus Рейтинг університетів за показниками Scopus 2017 року від OSVITA.UA. Дані по вступникам 2017 р. - vstup.info).");
+        .html('Кількість публікацій в Scopus за останній рік в перерахунку на 1000 вступників (бакалаврів і магістрів). Дані по публікаціям в Scopus Рейтинг університетів за показниками Scopus 2017 року від <a class="dashed" href="ru.osvita.ua/vnz/rating/55425/" target="_blank">OSVITA.UA</a>.');
 
     d3.select("thead tr th:nth-child(9)")
         .append("span")
         .attr("class", "tooltiptext")
-        .text("Кількість цитувань на 1 публікацію (Scopus) за даними 2017 р. (джерело OSVITA.UA).");
+        .text("Кількість цитувань на 1 публікацію (Scopus) за даними 2017 р.");
 
 
 // Add the table body rows.
