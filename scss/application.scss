@@ -13,50 +13,66 @@
 }
 
 body {
-  font: 16px/1.4 "PT Sans Caption", Serif;
+  font: 18px/1.4 "PT Sans", Serif;
   color: #464749;
   overflow-x: hidden!important;
   background-color: #ffffff;
 }
 
 .jumbotron {
-  //background-image: url(../img/main.svg);
-  background-size: cover;
 
-  //@media #{$brk-large}, #{$brk-xlarge}, #{$brk-medium}, #{$brk-narrow}
-  //{
-  //  height: 50vh;
-  //
-  //}
-  //
-  //@media #{$brk-spnarrow}, #{$brk-iphone} {
-  //  height: 25vh;
-  //}
+  background-image: url(../img/main.jpg);
+  background-size: cover;
+  height: 100vh;
+  padding-bottom: 0!important;
+  margin-bottom: 0!important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 
 }
 
 
-h1 {
 
+.bg-overlay {
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+}
+
+
+h1 {
   text-align: center;
   color: $blue !important;
   @media #{$brk-large}, #{$brk-xlarge}, #{$brk-medium}, #{$brk-narrow}
   {
+    margin-top: 25vh;
     font-size: 4.5rem!important;
     line-height: 5rem!important;
 
   }
 
   @media #{$brk-spnarrow}, #{$brk-iphone} {
+    margin-top: 15vh;
     font-size: 3rem!important;
     line-height: 4rem!important;
   }
 
 }
 
+h1 span {
+  background: rgba(0,0,0,0.1);
+}
+
 h2 {
   font-size: 2.2rem;
   font-weight: bold;
+}
+
+h3 {
+  color:white;
+}
+
+h3 span {
+  background: rgba(0,0,0,0.2);
 }
 
 .sorting {
@@ -68,9 +84,16 @@ h2 {
 
 p {
   font-size: 1.5rem;
-  line-height: 2rem;
+  line-height: 1.8rem;
 
 }
+
+p span {
+  background-color: $blue;
+  font-size: 1.8rem;
+  color:white;
+  line-height: 3rem;
+  }
 
 #page-wrap {
   margin: 50px;
@@ -412,7 +435,7 @@ button:hover {
 
 
 .dashed {
-  border-bottom: dashed 1px;
+  border-bottom: dashed 1px $blue;
 }
 
 .fa-arrow-down {
