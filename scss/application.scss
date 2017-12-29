@@ -75,6 +75,14 @@ h3 span {
   background: rgba(0,0,0,0.2);
 }
 
+h5 {
+  color:white;
+}
+
+h5 span{
+  background-color: $blue;
+}
+
 .sorting {
   //display: flex;
   flex-wrap: wrap;
