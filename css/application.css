@@ -337,10 +337,13 @@ h3 span {
   background: rgba(0, 0, 0, 0.2); }
 
 h5 {
-  color: white; }
+  font-size: 1.6rem;
+  text-align: center;
+  color: #46bcff;
+  margin-top: 50px; }
 
 h5 span {
-  background-color: #46bcff; }
+  color: white; }
 
 .sorting {
   flex-wrap: wrap;
