@@ -35,18 +35,14 @@ body {
 
 .bg-overlay {
   height: 100vh;
-  background: rgba(81, 86, 97, 0.5);
+  background: rgba(56, 57, 59, 0.5);
 }
 
-//.lead {
-//  text-align: center;
-//  width:50%;
-//}
 
 
 h1 {
   text-align: center;
-  color: $blue !important;
+  color: #85d9ff !important;
   @media #{$brk-large}, #{$brk-xlarge}, #{$brk-medium}, #{$brk-narrow}
   {
     margin-top: 25vh;
@@ -64,7 +60,7 @@ h1 {
 }
 
 h1 span {
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.2);
 }
 
 h2 {
@@ -102,7 +98,7 @@ p {
 }
 
 p span {
-  background-color: $blue;
+  background-color: #46bcff;
   font-size: 1.8rem;
   color:white;
   line-height: 3rem;
