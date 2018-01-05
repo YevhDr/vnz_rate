@@ -340,7 +340,7 @@ h5 {
   color: white; }
 
 h5 span {
-  background-color: #3498db; }
+  background-color: #46bcff; }
 
 .sorting {
   flex-wrap: wrap;
@@ -376,8 +376,8 @@ table {
   z-index: 2;
   color: #fff;
   cursor: default;
-  background-color: #3498db !important;
-  border-color: #3498db !important; }
+  background-color: #46bcff !important;
+  border-color: #46bcff !important; }
 
 thead > tr > th {
   padding: 15px !important; }
@@ -544,7 +544,7 @@ input#myInput {
   font-weight: 800; }
 
 .blue {
-  color: #3498db;
+  color: #46bcff;
   font-weight: 800; }
 
 .no-data {
@@ -560,14 +560,14 @@ button {
 
 button:hover {
   color: #ffffff;
-  background-color: #3498db; }
+  background-color: #46bcff; }
 
 .ui-slider-horizontal {
   height: 0.4em !important; }
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
-  border: 1px solid #3498db !important;
-  background: #3498db !important;
+  border: 1px solid #46bcff !important;
+  background: #46bcff !important;
   font-weight: normal;
   color: #717274 !important; }
 
@@ -605,12 +605,12 @@ button:hover {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); }
 
 .dashed {
-  border-bottom: dashed 1px #3498db; }
+  border-bottom: dashed 1px #46bcff; }
 
 .fa-arrow-down {
   color: red; }
 
 .fa-arrow-up {
-  color: #3498db; }
+  color: #46bcff; }
 
 /*# sourceMappingURL=application.css.map */
