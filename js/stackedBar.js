@@ -61,7 +61,7 @@ var drawBar = function() {
                         return "#cc523e"
                     }
                     else {
-                        return "#3498db"
+                        return "#46bcff"
                     }
                 })
                 .on("mouseover", tip.show)

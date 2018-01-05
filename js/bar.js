@@ -108,10 +108,10 @@ var drawBar = function() {
                 .attr("fill", function() {
                     if (data.mean > 0) {
                         if (data.mean >= 138.9) {
-                            return '#3498DB';
+                            return '#46bcff';
                         }
                         else if (data.mean < 138.9) {
-                            return '#cc3337';
+                            return '#FF5F67';
                         }
                     }
 
