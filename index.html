@@ -8,7 +8,7 @@
           content="підзаг">
     <meta name="author" content="">
 
-    <title>Де в Україні знаходяться найкращі університети? (оновлена візуалізація 2017)
+    <title>Як знайти найкращий ВНЗ в Україні? (за версією 2017 року)
     </title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -18,15 +18,15 @@
 
     <!-- OpenGraph Meta Tags -->
     <meta property="og:site_name"
-          content="Де в Україні знаходяться найкращі університети? (оновлена візуалізація 2017)
+          content="Як знайти найкращий ВНЗ в Україні? (за версією 2017 року)
 "/>
     <meta property="og:type" content="http://texty.org.ua/d/bez_zno/"/>
     <meta property="og:title"
-          content="Де в Україні знаходяться найкращі університети? (оновлена візуалізація 2017)
+          content="Як знайти найкращий ВНЗ в Україні? (за версією 2017 року)
 "/>
-    <meta property="og:image" content="http://texty.org.ua/d/bez_zno/img/.............."/>
+    <meta property="og:image" content="http://texty.org.ua/d/bez_zno/img/main.jpg"/>
     <meta property="og:description"
-          content="Ключові параметри для вибору ВНЗ, це розуміння того, який рівень мають студенти, що там навчаються, як багато абітурієнтів обирає цей ВНЗ, скільки коштує навчання, чи сильний професорського-викладацький склад. На всі ці питання відповідає наш оновлений рейтинг Вищих навчальних закладів – 2017 року"/>
+          content="Ми визначили рейтинг вишів на основі балу ЗНО вступників та порівняли результати із нашим попереднім рейтингом, який ми зробили у 2011 році. Український католицький університет піднявся з 36-го на 2-ге місце."/>
     <meta property="og:url" content="http://texty.org.ua/d/bez_zno/"/>
 
 
@@ -36,19 +36,19 @@
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:url" content="http://texty.org.ua/d/bez_zno/"/>
     <meta name="twitter:title"
-          content="Де в Україні знаходяться найкращі університети? (оновлена візуалізація 2017)
+          content="Як знайти найкращий ВНЗ в Україні? (за версією 2017 року)
 "/>
     <meta name="twitter:description"
-          content="Ключові параметри для вибору ВНЗ, це розуміння того, який рівень мають студенти, що там навчаються, як багато абітурієнтів обирає цей ВНЗ, скільки коштує навчання, чи сильний професорського-викладацький склад. На всі ці питання відповідає наш оновлений рейтинг Вищих навчальних закладів – 2017 року"/>
-    <meta name="twitter:image:src" content="http://texty.org.ua/d/bez_zno/img/................."/>
+          content="Ми визначили рейтинг вишів на основі балу ЗНО вступників та порівняли результати із нашим попереднім рейтингом, який ми зробили у 2011 році. Український католицький університет піднявся з 36-го на 2-ге місце."/>
+    <meta name="twitter:image:src" content="http://texty.org.ua/d/bez_zno/img/main.jpg"/>
     <meta name="twitter:image:width" content="1200"/>
     <meta name="twitter:image:height" content="630"/>
     <!-- Other Meta Tags -->
     <meta name="title"
-          content="Де в Україні знаходяться найкращі університети? (оновлена візуалізація 2017)
+          content="Як знайти найкращий ВНЗ в Україні? (за версією 2017 року)
 ">
     <meta name="description"
-          content="Ключові параметри для вибору ВНЗ, це розуміння того, який рівень мають студенти, що там навчаються, як багато абітурієнтів обирає цей ВНЗ, скільки коштує навчання, чи сильний професорського-викладацький склад. На всі ці питання відповідає наш оновлений рейтинг Вищих навчальних закладів – 2017 року">
+          content="Ми визначили рейтинг вишів на основі балу ЗНО вступників та порівняли результати із нашим попереднім рейтингом, який ми зробили у 2011 році. Український католицький університет піднявся з 36-го на 2-ге місце.">
 
 
     <!-- Custom Fonts -->
@@ -83,6 +83,21 @@
 </style>
 
 <body>
+<div class="container-fluid">
+<div class="row logo-buttons" style="width:100%;">
+    <div class="col-xs-3 col-sm-2 ">
+        <a href="http://texty.org.ua"><img class="logo" src="img/logo.png"></a>
+    </div>
+    <div class="col-xs-3 col-xs-offset-5 col-sm-1 col-sm-offset-9 ">
+        <div class="social-icons">
+            <a href="https://twitter.com/intent/tweet?text=http://texty.org.ua/d/dnister/" class="share-btn"><i
+                    class="fa fa-twitter fa-fw social-tw"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://texty.org.ua/d/dnister/" class="share-btn"><i
+                    class="fa fa-facebook fa-fw social-fb"></i></a>
+        </div>
+    </div>
+</div>
+</div>
 <header>
 
 
@@ -451,7 +466,16 @@
     </div>
 </footer>
 
+<script type="text/javascript">
 
+    // Animated Logo
+    $(window).scroll(function () {
+        $(".logo").fadeOut("slow");
+        if ($(window).scrollTop() == 0) {
+            $(".logo").css('display', 'block');
+        }
+    });
+</script>
 <!--<script src="lib/jquery-2.1.4.min.js"></script>-->
 </body>
 </html>

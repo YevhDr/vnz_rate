@@ -12,6 +12,14 @@
   //overflow-x: hidden;
 }
 
+.social-tw, .social-fb {
+  font-size: 1.5em!important;
+}
+
+.social-icons {
+  text-align: right!important;
+}
+
 body {
   font: 18px/1.4 "PT Sans", Serif;
   color: #464749;
@@ -82,7 +90,10 @@ h5 {
   text-align: center;
   color:$blue;
   margin-top: 50px;
-  //font-weight: 600;
+  @media #{$brk-spnarrow}, #{$brk-iphone} {
+    font-size: 1.4rem!important;
+    line-height: 2rem!important;
+  }
 }
 
 h5 span{
