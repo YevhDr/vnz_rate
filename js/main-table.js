@@ -181,7 +181,7 @@ $(document).ready(function() {
 
             }
             else if ((d.ranking_2011 - d.ranking_2017) === 0) {
-                return "теж місце"
+                return "те ж місце"
             }
             else {
                 return "дані відсутні"
