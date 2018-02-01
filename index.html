@@ -300,15 +300,15 @@
 
 <script>
 
-    d3.select("input#button-return").on("click", function () {
-        $("#input").val("");
-        $("#myInput").val("");
-        $("#myInput").trigger("keyup");
-    });
-
 //    d3.select("input#button-return").on("click", function () {
-//        window.location.reload()
+//        $("#input").val("");
+//        $("#myInput").val("");
+//        $("#myInput").trigger("keyup");
 //    });
+
+    d3.select("input#button-return").on("click", function () {
+        window.location.reload()
+    });
 
 </script>
 
