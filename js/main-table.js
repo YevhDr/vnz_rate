@@ -495,8 +495,8 @@ d3.csv(file, function (error, data) {
         $( "#slider-range2" ).slider({
             range: true,
             min: 0,
-            max: 42178,
-            values: [0, 42178],
+            max: 29000,
+            values: [0, 29000],
             slide: function(event, ut ) {
                 $("#amount2").val(ut.values[0] + "-" + ut.values[1]);
             },
@@ -511,7 +511,7 @@ d3.csv(file, function (error, data) {
 
                 data.forEach(function (d) {
 
-                    if (s2From === 0 && s2To === 42178 ) {
+                    if (s2From === 0 && s2To === 29000 ) {
                         // ("умова виконана");
                         d3.selectAll(rows[0]).style("display", "")
                             .classed("sh", true);
