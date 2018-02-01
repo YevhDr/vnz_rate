@@ -433,15 +433,12 @@ and also iPads specifically.
   #table td:nth-child(10) {
     width: 8%; }
 
-  #table td:nth-child(3) {
+  #table td:nth-child(2) {
     width: 20% !important;
     text-align: center !important; }
 
-  #table td:nth-child(2) {
-    width: 30% !important; }
-
   #table td:nth-child(1) {
-    width: 2% !important; }
+    width: 30% !important; }
 
   #table td:nth-child(3),
   #table td:nth-child(4),

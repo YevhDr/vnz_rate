@@ -5,77 +5,77 @@ var sort = function (stat) {
    // var ordrer = $("thead tr th:nth-child(1)").hasClass('active-h');
 
 
-    if (stat == "№" && $("thead tr th:nth-child(1)").hasClass('active-h') ) {
-
-        //--- delete ClassNames
-
-        d3.select(".active-h").classed("active-h", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
-        d3.selectAll("thead tr th i").classed("fa-sort", true);
-        //end of delete ClassNames
-
-        //--- add ClassNames
-        d3.select("thead tr th:nth-child(1) i")
-            .classed('fa-sort', false)
-            .classed('fa-sort-up', true); //--- end of adding ClassNames
-
-        //--- RePaginate
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        $("tbody tr").show();
-        paginationList(407);
-        d3.selectAll('tbody tr')
-            .sort(function (a, b) {
-                return d3.ascending(a.ranking_2017, b.ranking_2017);
-            });
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        paginationList(50);
-
-
-
-    }  else if (stat == "№") {
-
-        //--- delete ClassNames
-        d3.selectAll(".active-h").classed("active-h", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-up", false);
-        d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
-        d3.selectAll("thead tr th i").classed("fa-sort", true);
-        d3.select("thead tr th:nth-child(1) i").classed("fa-sort", false);
-        //end of delete ClassNames
-
-        //--- add ClassNames
-        d3.select("thead tr th:nth-child(1)")
-            .classed("active-h", true);
-        d3.select("thead tr th:nth-child(1) i")
-            .classed('fa-sort-desc', true);
-
-
-        //--- RePaginate
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        $("tbody tr").show();
-        paginationList(407);
-        d3.selectAll('tbody tr')
-            .sort(function (a, b) {
-                return d3.descending(a.ranking_2017, b.ranking_2017);
-            });
-        $("li.current-page").remove();
-        $("li#next-page").remove();
-        $("li#previous-page").remove();
-        paginationList(50);
-
-    }
+    // if (stat == "№" && $("thead tr th:nth-child(1)").hasClass('active-h') ) {
+    //
+    //     //--- delete ClassNames
+    //
+    //     d3.select(".active-h").classed("active-h", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort", true);
+    //     //end of delete ClassNames
+    //
+    //     //--- add ClassNames
+    //     d3.select("thead tr th:nth-child(1) i")
+    //         .classed('fa-sort', false)
+    //         .classed('fa-sort-up', true); //--- end of adding ClassNames
+    //
+    //     //--- RePaginate
+    //     $("li.current-page").remove();
+    //     $("li#next-page").remove();
+    //     $("li#previous-page").remove();
+    //     $("tbody tr").show();
+    //     paginationList(407);
+    //     d3.selectAll('tbody tr')
+    //         .sort(function (a, b) {
+    //             return d3.ascending(a.ranking_2017, b.ranking_2017);
+    //         });
+    //     $("li.current-page").remove();
+    //     $("li#next-page").remove();
+    //     $("li#previous-page").remove();
+    //     paginationList(50);
+    //
+    //
+    //
+    // }  else if (stat == "№") {
+    //
+    //     //--- delete ClassNames
+    //     d3.selectAll(".active-h").classed("active-h", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort-up", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
+    //     d3.selectAll("thead tr th i").classed("fa-sort", true);
+    //     d3.select("thead tr th:nth-child(1) i").classed("fa-sort", false);
+    //     //end of delete ClassNames
+    //
+    //     //--- add ClassNames
+    //     d3.select("thead tr th:nth-child(1)")
+    //         .classed("active-h", true);
+    //     d3.select("thead tr th:nth-child(1) i")
+    //         .classed('fa-sort-desc', true);
+    //
+    //
+    //     //--- RePaginate
+    //     $("li.current-page").remove();
+    //     $("li#next-page").remove();
+    //     $("li#previous-page").remove();
+    //     $("tbody tr").show();
+    //     paginationList(407);
+    //     d3.selectAll('tbody tr')
+    //         .sort(function (a, b) {
+    //             return d3.descending(a.ranking_2017, b.ranking_2017);
+    //         });
+    //     $("li.current-page").remove();
+    //     $("li#next-page").remove();
+    //     $("li#previous-page").remove();
+    //     paginationList(50);
+    //
+    // }
 
     //---------- University ------------- //
     //SORT DESCENDING
 
 
-    if (stat == "Назва " && $("thead tr th:nth-child(2)").hasClass('active-h') ) {
+    if (stat == "Назва " && $("thead tr th:nth-child(1)").hasClass('active-h') ) {
 
         //--- delete ClassNames
 
@@ -85,7 +85,7 @@ var sort = function (stat) {
         d3.selectAll("thead tr th i").classed("fa-sort", true);
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(2) i")
+        d3.select("thead tr th:nth-child(1) i")
             .classed('fa-sort', false)
             .classed('fa-sort-desc', true); //--- end of adding ClassNames
 
@@ -109,13 +109,13 @@ var sort = function (stat) {
     // -------SORT ASCENDING---------
     else if (stat == "Назва ") {
         //--- delete ClassNames
-        d3.select("thead tr th:nth-child(2) i").classed("fa-sort", false);
+        d3.select("thead tr th:nth-child(1) i").classed("fa-sort", false);
         d3.selectAll(".active-h").classed("active-h", false); //end of delete ClassNames
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(2)")
+        d3.select("thead tr th:nth-child(1)")
             .classed("active-h", true);
-        d3.select("thead tr th:nth-child(2) i")
+        d3.select("thead tr th:nth-child(1) i")
             .classed("fa-sort-up", true);//--- end of adding ClassNames
 
         //--- RePaginate
@@ -137,7 +137,7 @@ var sort = function (stat) {
 //--------------------------------------- Mean ZNO --------------------------------- //
 
 
-    if (stat == "Середній бал ЗНО " && $("thead tr th:nth-child(3)").hasClass('active-h') ) {
+    if (stat == "Медіана ЗНО " && $("thead tr th:nth-child(2)").hasClass('active-h') ) {
 
         //--- delete ClassNames
 
@@ -148,7 +148,7 @@ var sort = function (stat) {
         //end of delete ClassNames
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(3) i")
+        d3.select("thead tr th:nth-child(2) i")
             .classed('fa-sort', false)
             .classed('fa-sort-up', true); //--- end of adding ClassNames
 
@@ -169,20 +169,20 @@ var sort = function (stat) {
 
 
 
-    }  else if (stat == "Середній бал ЗНО ") {
+    }  else if (stat == "Медіана ЗНО ") {
 
         //--- delete ClassNames
         d3.selectAll(".active-h").classed("active-h", false);
         d3.selectAll("thead tr th i").classed("fa-sort-up", false);
         d3.selectAll("thead tr th i").classed("fa-sort-desc", false);
         d3.selectAll("thead tr th i").classed("fa-sort", true);
-        d3.select("thead tr th:nth-child(3) i").classed("fa-sort", false);
+        d3.select("thead tr th:nth-child(2) i").classed("fa-sort", false);
         //end of delete ClassNames
 
         //--- add ClassNames
-        d3.select("thead tr th:nth-child(3)")
+        d3.select("thead tr th:nth-child(2)")
             .classed("active-h", true);
-        d3.select("thead tr th:nth-child(3) i")
+        d3.select("thead tr th:nth-child(2) i")
             .classed('fa-sort-desc', true);
 
 

@@ -1,4 +1,4 @@
-var file = "data/data_med_ranking.csv";
+var file = "data/media_data_topmore200univs.csv";
 
 d3.csv(file, function (error, data) {
     if (error) throw error;
@@ -57,7 +57,7 @@ d3.csv(file, function (error, data) {
 
     // Add the table header content.
     tableHead.append('tr').selectAll('th')
-        .data(["№", "Назва ", "Середній бал ЗНО ", "Різниця з 2011 роком ", "Вартість контракту, грн* ", "Заяв на місце ", "Зараховано ",  "Наука (публікації, Scopus) ", "Наука (цитування, Scopus) "])
+        .data(["Назва ", "Медіана ЗНО ", "Різниця з 2011 роком ", "Вартість контракту, грн* ", "Заяв на місце ", "Зараховано ",  "Наука (публікації, Scopus) ", "Наука (цитування, Scopus) "])
         .enter()
         .append('th')
         .text(function (d) {
@@ -72,53 +72,53 @@ d3.csv(file, function (error, data) {
         .attr('class', 'fa fa-sort').style("font-size", "0.8em")
     ;
 
+    // d3.select("thead tr th:nth-child(1)")
+    //     .append("span")
+    //     .attr("class", "tooltiptext")
+    //     .text("Порядковий номер ВНЗ в рейтингу 2017 року");
+
     d3.select("thead tr th:nth-child(1)")
         .append("span")
         .attr("class", "tooltiptext")
-        .text("Порядковий номер ВНЗ в рейтингу 2017 року");
+        .text("ВНЗ, що у 2017 році зарахували більше 200 абітурієнтів. Назва ВНЗ є посиланням на сайт");
 
     d3.select("thead tr th:nth-child(2)")
-        .append("span")
-        .attr("class", "tooltiptext")
-        .text("ВНЗ, що мають у 2017 р. хоча б одного зарахованого на бакалаврат. Тисніть на стрілку поруч із назвою, аби перейти до сайту ВНЗ.");
-
-    d3.select("thead tr th:nth-child(3)")
         .attr("class", "active-h")
         .append("span")
         .attr("class", "tooltiptext")
-        .html('<span style="color: #46bcff"><b>Блакитний</b></span> колір графіка означає, що середній бал ЗНО вступників цього ВНЗ є вищим за середній по країні (138.9), <span style="color: #FF5F67"><b>червоний</b></span> - що нижче. Довжина кольорової частини графіку ілюструє відхилення від загального середнього. Враховані результати вступників, що мали 2 або 3 сертифіката ЗНО, тобто вступали за результатами ЗНО.');
+        .html('<span style="color: #46bcff"><b>Блакитний</b></span> колір графіка означає, що медіана ЗНО вступників цього ВНЗ є вищим за медіану медіани (138.3), <span style="color: #FF5F67"><b>червоний</b></span> - що нижче. Довжина кольорової частини графіку ілюструє відхилення від загальної медіани. Враховані результати вступників, що мали 2 або 3 сертифіката ЗНО, тобто вступали за результатами ЗНО.');
+
+    d3.select("thead tr th:nth-child(3)")
+        .append("span")
+        .attr("class", "tooltiptext")
+        .html('Різниця з <a class="dashed" href="http://texty.org.ua/pg/article/devrand/read/29555" target="_blank">рейтингом-2011</a>, вирахувана за методологією 2011 року, тобто по середньому значенню ЗНО. Позначка про відсутність даних означає, що неможливо порівняти позицію через наступні причини: ВНЗ припинив своє існування / був реорганізований / почав роботу  між 2011 р. і 2017 р. або ВНЗ перестав/почав набирати студентів на бакалаврат між 2011 р. і 2017 р.');
 
     d3.select("thead tr th:nth-child(4)")
         .append("span")
         .attr("class", "tooltiptext")
-        .html('Різниця між позицією ВНЗ в рейтингу-2017 і <a class="dashed" href="http://texty.org.ua/pg/article/devrand/read/29555" target="_blank">рейтингу-2011</a>. Позначка про відсутність даних означає, що неможливо порівняти позицію через наступні причини: ВНЗ припинив своє існування / був реорганізований / почав роботу  між 2011 р. і 2017 р. або ВНЗ перестав/почав набирати студентів на бакалаврат між 2011 р. і 2017 р.');
+        .html('<span style="color: #FF5F67"><b>Червоний</b></span> колір означає, що ціна навчання за рік є вищою за середню по країні (12 790 грн). Вартість конракту у ВНЗ вирахована на основі середньої вартості <a class="dashed" href="http://mon.gov.ua/usi-novivni/novini/2017/09/14/top-10-najbilsh-ta-najmensh-populyarnix-speczialnostej-u-2017-roczi/" target="_blank">по ТОП-10 найбільш популярних спеціальностей 2017 р.</a>: економіка, право, філологія, середня освіта, компʼютерні науки, інженерія програмного забезпечення, менеджмент, медицина, туризм, психологія. В тих ВНЗ, де не навчають жодній з цих спеціальностей, взято середню вартість по наявним. Зірочкою відмічені ВНЗ, де вартість взята за 2016 або 2015 рік.');
 
     d3.select("thead tr th:nth-child(5)")
         .append("span")
         .attr("class", "tooltiptext")
-        .html('<span style="color: #FF5F67"><b>Червоний</b></span> колір означає, що ціна навчання за рік є вищою за середню по країні (12 790 грн). Вартість конракту у ВНЗ вирахована на основі середньої вартості <a class="dashed" href="http://mon.gov.ua/usi-novivni/novini/2017/09/14/top-10-najbilsh-ta-najmensh-populyarnix-speczialnostej-u-2017-roczi/" target="_blank">по ТОП-10 найбільш популярних спеціальностей 2017 р.</a>: економіка, право, філологія, середня освіта, компʼютерні науки, інженерія програмного забезпечення, менеджмент, медицина, туризм, психологія. В тих ВНЗ, де не навчають жодній з цих спеціальностей, взято середню вартість по наявним. Зірочкою відмічені ВНЗ, де вартість взята за 2016 або 2015 рік.');
+        .text("Загальна кількість заяв по ВНЗ до кількості зарахованих. Не є показником попиту на навчання саме в цьому ВНЗ, адже до слабих ВНЗ часто подають заяву провсяк випадок, а вступають потім до більш сильних. Тож що слабкішим є ВНЗ, то більшою може бути різниця між кількістю поданих заяв і кількістю зарахованих");
 
     d3.select("thead tr th:nth-child(6)")
         .append("span")
         .attr("class", "tooltiptext")
-        .text("Загальна кількість заяв по ВНЗ до кількості зарахованих. Не є показником попиту на навчання саме в цьому ВНЗ, адже до слабих ВНЗ часто подають заяву провсяк випадок, а вступають потім до більш сильних. Тож що слабкішим є ВНЗ, то більшою може бути різниця між кількістю поданих заяв і кількістю зарахованих");
-
-    d3.select("thead tr th:nth-child(7)")
-        .append("span")
-        .attr("class", "tooltiptext")
-        .text("Кількість студентів, що зараховані на бакалаврат. Для медичних ВНЗ на бакалаврат і до магістратури");
+        .text("Кількість студентів, що зараховані на бакалаврат. Для медичних спеціальностей на бакалаврат і до магістратури");
 
     // d3.select("thead tr th:nth-child(6)")
     //     .append("span")
     //     .attr("class", "tooltiptext")
     //     .text("Загальна кількість заяв по ВНЗ до кількості зарахованих. Не є показником попиту на навчання саме в цьому ВНЗ, адже до слабих ВНЗ часто подають заяву провсяк випадок, а вступають потім до більш сильних. Тож що слабкішим є ВНЗ, то більшою може бути різниця між кількістю поданих заявами і кількістю зарахованих абітурієнтів");
 
-    d3.select("thead tr th:nth-child(8)")
+    d3.select("thead tr th:nth-child(7)")
         .append("span")
         .attr("class", "tooltiptext")
         .html('Кількість публікацій в Scopus за останній рік в перерахунку на 1000 вступників (бакалаврів і магістрів). Дані по публікаціям в Scopus Рейтинг університетів за показниками Scopus 2017 року від <a class="dashed" href="ru.osvita.ua/vnz/rating/55425/" target="_blank">OSVITA.UA</a>.');
 
-    d3.select("thead tr th:nth-child(9)")
+    d3.select("thead tr th:nth-child(8)")
         .append("span")
         .attr("class", "tooltiptext")
         .text("Кількість цитувань на 1 публікацію (Scopus) за даними 2017 р.");
@@ -133,22 +133,25 @@ d3.csv(file, function (error, data) {
         ;
 
 
-    rows.append('td').text(function (d) {
-        return d.ranking_2017;
-    });
+    // rows.append('td').text(function (d) {
+    //     return d.ranking_2017;
+    // });
 
     rows.append('td')
+        .append('a')
+        .attr("xlink:href", function(d){return d.link})
+        .append('text')
         .text(function (d) {
             return d.univ + "   ";
         })
-        .attr("class", "tolink")
-        .append("button")
-        .style("display", function(d){
-            return d.link ? null : "none";
-        })
-        .text("  >")
+        // .attr("class", "tolink")
+        // .append("button")
+        // .style("display", function(d){
+        //     return d.link ? null : "none";
+        // })
+        // .text("  >")
         .style("cursor", "pointer")
-        .attr("class", "link")
+        // .attr("class", "link")
         .on("click", function (d) {
             return window.open(d.link);
         });
@@ -240,7 +243,7 @@ d3.csv(file, function (error, data) {
     });
 
     rows.append('td').text(function (d) {
-        return d.AmountOfBacalavr;
+        return d.size;
     });
 
 
@@ -259,10 +262,11 @@ d3.csv(file, function (error, data) {
     })
         .attr("class", function (d){
 
-            if (d.scopus_per_student <= 0) {
-                return "no-data"
-            } else {
+            if (d.scopus_per_student > 0 ) {
                 return false
+
+            } else {
+                return "no-data"
             }
 
         });
@@ -292,7 +296,7 @@ d3.csv(file, function (error, data) {
 
     d3.selectAll("table tbody tr")
         .sort(function (a, b) {
-            return d3.descending(a.mean, b.mean);
+            return d3.descending(a.median, b.median);
 
         });
 

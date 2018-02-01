@@ -64,12 +64,12 @@ var drawBar = function() {
                 .attr("y", 30)
                 .attr("height", 12)
                 .attr("width", function() {
-                    if(data.mean > 0) {
-                        if (data.mean >= 138.9) {
-                            return 38.9
+                    if(data.median > 0) {
+                        if (data.median >= 138.3) {
+                            return 38.93
                         }
-                        else if (data.mean < 138.9) {
-                            return x(data.mean)- 100
+                        else if (data.median < 138.3) {
+                            return x(data.median)- 100
                         }
                     }
                 })
@@ -83,12 +83,12 @@ var drawBar = function() {
                 .append("rect")
                 .attr('class', 'rect')
                 .attr("x", function() {
-                        if (data.mean > 0) {
-                            if (data.mean >= 138.9) {
-                                return 38.9
+                        if (data.median > 0) {
+                            if (data.median >= 138.3) {
+                                return 38.3
                             }
-                            else if (data.mean < 138.9) {
-                                return x(data.mean) - 100
+                            else if (data.median < 138.3) {
+                                return x(data.median) - 100
                             }
                         }
                     })
@@ -96,21 +96,21 @@ var drawBar = function() {
 
                 .attr("height", 12)
                 .attr("width", function() {
-                    if (data.mean > 0) {
-                        if (data.mean >= 138.9) {
-                            return x(data.mean) - 100 - 38.9;
+                    if (data.median > 0) {
+                        if (data.median >= 138.3) {
+                            return x(data.median) - 100 - 38.3;
                         }
-                        else if (data.mean < 138.9) {
-                            return 138.9 - x(data.mean);
+                        else if (data.median < 138.3) {
+                            return 138.3 - x(data.median);
                         }
                     }
                 })
                 .attr("fill", function() {
-                    if (data.mean > 0) {
-                        if (data.mean >= 138.9) {
+                    if (data.median > 0) {
+                        if (data.median >= 138.3) {
                             return '#46bcff';
                         }
-                        else if (data.mean < 138.9) {
+                        else if (data.median < 138.3) {
                             return '#FF5F67';
                         }
                     }
@@ -127,12 +127,12 @@ var drawBar = function() {
                 .append("rect")
                 .attr('class', 'rect2')
                 .attr("x", function() {
-                    if (data.mean > 0) {
-                        if (data.mean >= 138.9) {
-                            return x(data.mean)-100
+                    if (data.median > 0) {
+                        if (data.median >= 138.3) {
+                            return x(data.median)-100
                         }
-                        else if (data.mean < 138.9) {
-                            return x(38.9)
+                        else if (data.median < 138.3) {
+                            return x(38.3)
                         }
                     }
                 })
@@ -140,12 +140,12 @@ var drawBar = function() {
 
                 .attr("height", 12)
                 .attr("width", function() {
-                    if (data.mean > 0) {
-                        if (data.mean >= 138.9) {
-                            return 200 - x(data.mean);
+                    if (data.median > 0) {
+                        if (data.median >= 138.3) {
+                            return 200 - x(data.median);
                         }
-                        else if (data.mean < 138.9) {
-                            return 200 - 138.9;
+                        else if (data.median < 138.3) {
+                            return 200 - 138.3;
                         }
                     }
                 })
@@ -158,7 +158,7 @@ var drawBar = function() {
 
 
 
-            if(data.mean > 100) {
+            if(data.median > 100) {
                 svg.append("line")
                     .attr("x1", 38.9)
                     .attr("x2", 38.9)
@@ -167,11 +167,11 @@ var drawBar = function() {
                     .attr("stroke", "black");
             }
 
-            if(data.mean > 100) {
+            if(data.median > 100) {
                 svg.append("text")
-                    .text(data.mean)
+                    .text(data.median)
                     .attr("y", 23)
-                    .attr("x", data.mean - 106)
+                    .attr("x", data.median - 116)
                     .style("fill", "grey")
                     .style("font-size", "1.15rem")
                     .style("overflow", "visible")
