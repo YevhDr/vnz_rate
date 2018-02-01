@@ -380,7 +380,7 @@ p {
 Generic Styling, for Desktops/Laptops
 */
 table {
-  width: 100%;
+  width: 98% !important;
   background-color: #ffffff;
   border-collapse: collapse;
   font-size: 1.5rem; }
