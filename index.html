@@ -84,19 +84,41 @@
 
 <body>
 <div class="container-fluid">
-<div class="row logo-buttons" style="width:100%;">
-    <div class="col-xs-3 col-sm-2 ">
-        <a href="http://texty.org.ua"><img class="logo" src="img/logo.png"></a>
-    </div>
-    <div class="col-xs-3 col-xs-offset-5 col-sm-1 col-sm-offset-9 ">
-        <div class="social-icons">
-            <a href="https://twitter.com/intent/tweet?text=http://texty.org.ua/d/vnz_rate/" class="share-btn"><i
-                    class="fa fa-twitter fa-fw social-tw"></i></a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://texty.org.ua/d/vnz_rate/" class="share-btn"><i
-                    class="fa fa-facebook fa-fw social-fb"></i></a>
+
+    <style>
+        .disclaimer {
+            color: #eee;
+            font-size: 0.7em;
+            margin-top: 50px;
+            padding-left: 30px;
+            padding-right: 25px;
+            width: 202px;
+        }
+        @media (max-width: 767px) {
+            .disclaimer {
+                display:none; 
+            }
+        }
+
+    </style>
+
+    <div class="row logo-buttons" style="width:100%; position: absolute">
+        <div class="col-xs-8 col-sm-4 col-md-3 col-lg-2" style="padding-top: 19px">
+            <a href="http://texty.org.ua"><img class="img-responsive logo" src="img/logo.png" style="top: 19px;""></a>
+            <a href="https://www.radiosvoboda.org/"><img class="img-responsive logo" src="img/radio-liberty-big.png" style="margin-left: 165px; margin-top:0px; width:55px"></a>
+            <div class="disclaimer"> Проект опубліковано виданнями Texty.org.ua та Радіо Свобода </div>
+        </div>
+        <div class="col-xs-3 col-xs-offset-1 col-sm-2 col-sm-offset-6 col-md-2 col-md-offset-7 col-lg-1 col-lg-offset-9" >
+            <div class="social-icons">
+                <a href="https://twitter.com/intent/tweet?text=http://texty.org.ua/d/vnz_rate/" class="share-btn"><i
+                        class="fa fa-twitter fa-fw social-tw"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http://texty.org.ua/d/vnz_rate/" class="share-btn"><i
+                        class="fa fa-facebook fa-fw social-fb"></i></a>
+            </div>
         </div>
     </div>
-</div>
+
+
 </div>
 <header>
 
