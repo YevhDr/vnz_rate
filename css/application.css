@@ -424,6 +424,9 @@ and also iPads specifically.
   table, thead, tbody, th, td, tr {
     display: block; }
 
+  table {
+    width: 98% !important; }
+
   tr:nth-child(even) {
     background: #e7e7e7; } }
 @media (min-width: 1024px) {
